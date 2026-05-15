@@ -78,13 +78,38 @@ export function ProjectVisual({project}) {
         const a2=a+1.1,p2x=cx+rx*Math.cos(a2-Math.PI/2),p2y=cy+ry*Math.sin(a2-Math.PI/2);
         ctx.fillStyle=`rgba(${rgb},.9)`;ctx.shadowColor=project.accentColor;ctx.shadowBlur=6;
         ctx.beginPath();ctx.arc(p2x,p2y,3,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
-      } else if(project.id==="terminal-os"){
-        const lines=["$ boot --identity pushan","Initializing...","✓ Memory loaded [147]","✓ Encryption active","$ ls ./projects","silverwall/ lifesync/","$ open silverwall/"];
-        const vis=Math.floor(t/18);
+      } else if(project.id==="the-terminal"){
+        const lines=[
+          { t: "$ boot --identity pushan", c: "#39FF14" },
+          { t: "Initializing...", c: "rgba(138,154,170,.6)" },
+          { t: "✓ Memory loaded [147]", c: "rgba(138,154,170,.6)", check: true },
+          { t: "✓ Encryption active", c: "rgba(138,154,170,.6)", check: true },
+          { t: "$ ls ./projects", c: "#39FF14" },
+          { t: "silverwall/ lifesync/", c: "rgba(138,154,170,.6)" },
+          { t: "$ open the-terminal/", c: "#39FF14" }
+        ];
+        const lineTime = 25;
+        const vis=Math.floor(t/lineTime);
         ["#ff5f57","#ffbd2e","#28ca41"].forEach((c,i)=>{ctx.fillStyle=c;ctx.beginPath();ctx.arc(12+i*14,14,3.5,0,Math.PI*2);ctx.fill();});
-        ctx.font=`${Math.min(W*.034,10)}px 'Courier New'`;
-        lines.forEach((l,i)=>{if(i<vis){ctx.fillStyle=i===0?"#a855f7":"rgba(138,154,170,.6)";ctx.fillText(l.slice(0,t-i*18),12,34+i*15);}});
-        if(vis<lines.length&&t%30<15){ctx.fillStyle="#a855f7";ctx.fillRect(12+ctx.measureText(lines[vis].slice(0,t-vis*18)).width,34+vis*15-8,5,10);}
+        ctx.font=`${Math.min(W*.034,10)}px 'Courier New', monospace`;
+        lines.forEach((l,i)=>{
+          if(i<=vis){
+            const charCount = i < vis ? l.t.length : Math.floor((t % lineTime) * (l.t.length / lineTime));
+            const text = l.t.slice(0, charCount);
+            if(l.check && text.startsWith("✓")){
+              ctx.fillStyle="#28ca41"; ctx.fillText("✓", 12, 34+i*15);
+              ctx.fillStyle=l.c; ctx.fillText(text.slice(1), 12+ctx.measureText("✓").width, 34+i*15);
+            } else {
+              ctx.fillStyle=l.c; ctx.fillText(text, 12, 34+i*15);
+            }
+          }
+        });
+        if(vis<lines.length && t%30<15){
+          const curr = lines[vis];
+          const charCount = Math.floor((t % lineTime) * (curr.t.length / lineTime));
+          ctx.fillStyle="#a855f7"; 
+          ctx.fillRect(12+ctx.measureText(curr.t.slice(0, charCount)).width, 34+vis*15-8, 5, 10);
+        }
       } else if(project.id==="webtoon-redesign"){
         ctx.strokeStyle=`rgba(${rgb},.15)`;ctx.lineWidth=1;
         for(let i=0;i<6;i++){const y=20+i*30;ctx.beginPath();ctx.moveTo(10,y);ctx.lineTo(W-10,y);ctx.stroke();}

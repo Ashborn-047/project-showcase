@@ -51,22 +51,23 @@
     "accentColor": "#00FFB3"
   },
   {
-    "id": "terminal-os",
+    "id": "the-terminal",
     "title": "The Terminal Simulator",
     "category": [
       "System Engineering",
       "Gamification"
     ],
     "status": "in-progress",
-    "year": 2024,
-    "shortDescription": "A gamified, browser-based Linux terminal simulator featuring a sandboxed Virtual File System, 30+ native commands, and guided learning labs.",
+    "year": 2025,
+    "shortDescription": "A professional-grade Linux terminal simulator with a POSIX-compliant VFS, 70+ commands, and a gamified dual-track curriculum.",
     "tags": [
       "React",
       "TypeScript",
-      "VFS",
+      "POSIX VFS",
       "OS Simulation",
       "Framer Motion",
-      "Gamification"
+      "Gamification",
+      "SpacetimeDB"
     ],
     "links": {
       "live": "https://ashborn-047.github.io/the-terminal/",
