@@ -144,6 +144,20 @@ export default function DetailOverlay({project,onClose,isMobile}){
                 </Section>
               )}
 
+              {/* architecture flow */}
+              {p.architecture && p.architecture.length > 0 && (
+                <Section label="ARCHITECTURAL_FLOW_">
+                  <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"repeat(auto-fit, minmax(240px, 1fr))",gap:12}}>
+                    {p.architecture.map((item,i)=>(
+                      <div key={i} style={{background:"rgba(255,255,255,.02)",border:"1px solid rgba(255,255,255,.05)",padding:"16px",position:"relative"}}>
+                        <div style={{fontSize:10,letterSpacing:"0.12em",color:p.accentColor,fontFamily:"'Courier New',monospace",marginBottom:8,textTransform:"uppercase"}}>0{i+1} // {item.step}</div>
+                        <div style={{fontSize:isMobile?11.5:12.5,lineHeight:1.6,color:"rgba(138,154,170,.65)"}}>{item.desc}</div>
+                      </div>
+                    ))}
+                  </div>
+                </Section>
+              )}
+
               {/* what i built */}
               <Section label="WHAT_I_BUILT_">
                 <div style={{display:"flex",flexDirection:"column",gap:10}}>

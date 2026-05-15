@@ -32,15 +32,15 @@
       "Real-Time Data"
     ],
     "status": "in-progress",
-    "year": 2024,
-    "shortDescription": "A live F1 telemetry dashboard featuring real-time car tracking on dynamic circuit maps, instant leaderboard updates, and driver data visualization.",
+    "year": 2025,
+    "shortDescription": "A high-performance F1 telemetry dashboard inspired by the Mercedes AMG pit-wall, powered by a SpacetimeDB reactive engine.",
     "tags": [
       "React",
-      "FastAPI",
-      "Python",
+      "TypeScript",
+      "SpacetimeDB",
       "TailwindCSS",
       "OpenF1 API",
-      "WebSockets",
+      "Real-Time Sync",
       "Data Visualization"
     ],
     "links": {
