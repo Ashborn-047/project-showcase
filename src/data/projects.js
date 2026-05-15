@@ -156,22 +156,28 @@ export const PROJECTS = [
     id: "solar-core", title: "Solar Core Explorer",
     category: ["Web3D", "Physics Simulation"], status: "live", year: 2024,
     shortDescription: "A high-fidelity, interactive 3D solar system explorer featuring procedural planetary physics, orbital mechanics, and a deep telemetry HUD.",
-    fullDescription: "Solar Core Explorer is a robust WebGL simulation modeling planetary bodies with procedural textures, atmospheric scattering, and accurate orbital physics. Beyond being a visual spectacle, it includes a deep telemetry Head-Up Display (HUD) that tracks real-time planetary metrics—orbit velocities, atmospheric composition, and axial tilt—in a beautiful, sci-fi inspired interface.",
+    fullDescription: "Solar Core Explorer is a photorealistic WebGL simulation of the cosmos. Built with React and Three.js, it models celestial bodies using real NASA satellite imagery and procedural noise generation. The application features accurate orbital physics, atmospheric scattering shaders, and a sophisticated telemetry HUD that tracks real-time planetary composition and dynamics, bridging the gap between cinematic art and scientific simulation.",
     tags: ["Three.js", "WebGL", "Procedural Generation", "Physics", "React", "Shaders"],
     links: { live: "https://ashborn-047.github.io/Solar-Core-Explorer/", github: "https://github.com/Ashborn-047/Solar-Core-Explorer", caseStudy: null }, accentColor: "#EAB308",
     tech: [
-      { name: "Three.js", role: "Handles the entire 3D scenegraph, camera controllers, and rendering pipeline for the complex planetary bodies.", badge: "3D Engine" },
-      { name: "Procedural Textures", role: "Generates high-resolution surface maps and cloud layers dynamically using noise algorithms, reducing total asset payload.", badge: "Graphics" },
-      { name: "Orbital Mechanics", role: "Simulates physically accurate planetary rotations and orbital paths relative to a central light source.", badge: "Physics" },
-      { name: "React Telemetry HUD", role: "Overlays the 3D canvas with a highly reactive, sci-fi inspired telemetry dashboard tracking live physics variables.", badge: "Interface" },
+      { name: "Three.js & WebGL", role: "Powering the cinematic rendering pipeline with PBR materials and multi-layered atmospheric shaders.", badge: "Core" },
+      { name: "Procedural Texturing", role: "Dynamically generating solar surface patterns and planetary cloud layers using noise algorithms.", badge: "Graphics" },
+      { name: "Orbital Physics Engine", role: "Calculating physically accurate planetary rotations and elliptic orbital trajectories in real-time.", badge: "Physics" },
+      { name: "Reactive Telemetry HUD", role: "A data-dense interface built in React that synchronizes with the WebGL state to show live telemetry.", badge: "UI" },
     ],
-    usecases: [
-      { title: "Procedural Exploration", desc: "Fly seamlessly between planetary bodies, observing unique, mathematically generated surface details up close." },
-      { title: "Educational Simulation", desc: "View real-time telemetry data regarding orbital speeds and atmospheric composition in an engaging format." },
-      { title: "Performance Profiling", desc: "Showcases techniques for managing massive polygon counts and complex shaders while maintaining 60fps in the browser." },
+    exhibits: [
+      { title: "Solar Surface", desc: "Observing procedural convection cells and granulation patterns on the Sun's surface.", link: "https://ashborn-047.github.io/Solar-Core-Explorer/" },
+      { title: "Earth Observer", desc: "Detailed rendering of Earth using high-resolution NASA satellite textures and cloud layers.", link: "https://ashborn-047.github.io/Solar-Core-Explorer/" },
+      { title: "Saturnian Rings", desc: "Simulating crystalline ring structures with accurate Cassini Division spacing and shadows.", link: "https://ashborn-047.github.io/Solar-Core-Explorer/" },
+      { title: "Telemetry Feed", desc: "Deep-diving into real-time planetary data including mass, velocity, and atmospheric composition.", link: "https://ashborn-047.github.io/Solar-Core-Explorer/" }
     ],
-    built: ["Procedural noise generation engine for mapping planet surfaces and atmospheres","Physically-based rendering (PBR) pipeline optimized for browser environments","Interactive orbital camera system allowing seamless zoom from macro to micro scale","A deep, data-rich telemetry dashboard built in React that syncs with WebGL state"],
-    metrics: [{ val: "Procedural", label: "Texturing" },{ val: "60fps", label: "Render Target" },{ val: "WebGL", label: "API Base" }],
+    built: [
+      "Procedural noise engine for generating unique, high-resolution surface maps for every celestial body",
+      "Physically-based rendering (PBR) pipeline optimized for high-performance browser environments",
+      "Interactive orbital camera system allowing seamless zoom from planetary scale to deep-space views",
+      "Sophisticated telemetry dashboard with real-time data synchronization between React and Three.js"
+    ],
+    metrics: [{ val: "NASA", label: "Textures" },{ val: "60fps", label: "Performance" },{ val: "Procedural", label: "Generation" },{ val: "Physics", label: "Driven" }],
   },
   {
     id: "lifesync", title: "LifeSync",

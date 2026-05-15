@@ -158,6 +158,36 @@ export function ProjectVisual({project}) {
         const slideP=(t*.006)%1,sp=getP(slideP);
         ctx.fillStyle="#fff";ctx.shadowColor="#fff";ctx.shadowBlur=12;ctx.beginPath();ctx.arc(sp.x,sp.y,3.5,0,Math.PI*2);ctx.fill();
         ctx.shadowBlur=0;
+      } else if(project.id==="solar-core"){
+        const cx=W/2,cy=H/2;
+        // Central Star (Sun)
+        const sunR=25+Math.sin(t*.02)*3;
+        const sunGrad=ctx.createRadialGradient(cx,cy,2,cx,cy,sunR*1.5);
+        sunGrad.addColorStop(0,"#fff");
+        sunGrad.addColorStop(0.2,project.accentColor);
+        sunGrad.addColorStop(1,"transparent");
+        ctx.fillStyle=sunGrad;ctx.beginPath();ctx.arc(cx,cy,sunR*1.5,0,Math.PI*2);ctx.fill();
+        
+        // Solar Flares (Subtle)
+        ctx.strokeStyle=`rgba(${rgb},.3)`;ctx.lineWidth=1;
+        for(let i=0;i<8;i++){
+          const a=t*.01+i*(Math.PI/4),r1=sunR,r2=sunR+15+Math.sin(t*.05+i)*10;
+          ctx.beginPath();ctx.moveTo(cx+Math.cos(a)*r1,cy+Math.sin(a)*r1);ctx.lineTo(cx+Math.cos(a)*r2,cy+Math.sin(a)*r2);ctx.stroke();
+        }
+
+        // Orbital Rings & Planets
+        const orbits=[{r:60,s:.01,c:"#4ade80"},{r:90,s:.006,c:"#60a5fa"},{r:130,s:.004,c:"#f87171"}];
+        orbits.forEach((orb,i)=>{
+          ctx.strokeStyle=`rgba(${rgb},.15)`;ctx.setLineDash([5,5]);
+          ctx.beginPath();ctx.arc(cx,cy,orb.r,0,Math.PI*2);ctx.stroke();
+          ctx.setLineDash([]);
+          
+          const a=t*orb.s;
+          const px=cx+Math.cos(a)*orb.r,py=cy+Math.sin(a)*orb.r;
+          ctx.fillStyle=orb.c;ctx.shadowColor=orb.c;ctx.shadowBlur=10;
+          ctx.beginPath();ctx.arc(px,py,3+i,0,Math.PI*2);ctx.fill();
+        });
+        ctx.shadowBlur=0;
       }
       rafRef.current=requestAnimationFrame(draw);
     };
