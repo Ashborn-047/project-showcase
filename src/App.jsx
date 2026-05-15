@@ -41,6 +41,7 @@ const PROJECTS = [
       { title: "Resolving Navigation Flow", desc: "Fixed clunky static sidebars by introducing a fully collapsible navigation rail with 300ms smooth transitions and logo-toggle functionality." },
       { title: "Fixing Layout Overflow", desc: "Completely eliminated horizontal overflow issues that previously broke the layout on smaller viewports, ensuring a strict responsive grid." },
       { title: "Enhancing Visual Feedback", desc: "Added missing interactive states, including 'Webtoon Green' hover effects, refined profile tab glows, and active-state indicators." },
+      { title: "Before vs. After Impact", desc: "Acted as a practical case study comparing the original fragmented Webtoon UX against this modernized Next.js prototype, clearly demonstrating the resolution of core usability flaws." },
     ],
     built: ["Responsive Next.js application tailored for mobile, tablet, and desktop viewports","Complex UI state management using Zustand and custom hooks","Aesthetic layout using Radix UI primitives and Tailwind utility classes","Automated GitHub Pages deployment pipeline using GitHub Actions"],
     metrics: [{ val: "Next 14", label: "App Router" },{ val: "Tailwind", label: "Styling" },{ val: "Zustand", label: "State Layer" },{ val: "Radix", label: "Primitives" }],
