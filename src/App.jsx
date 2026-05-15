@@ -26,131 +26,151 @@ const STATUS_MAP = {
 
 const PROJECTS = [
   {
-    id: "silverwall", title: "SilverWall",
-    category: ["UI Design","Live Data","Systems"], status: "live", year: 2024,
-    shortDescription: "Engineering-grade F1 telemetry dashboard. Real-time car positions, live race leaderboards, sector timing, and driver analytics — all within a custom design system.",
-    fullDescription: "SilverWall is a full-stack F1 telemetry platform built to solve a real problem: existing F1 dashboards are cluttered, slow, and designed for broadcast — not engineers. The goal was mission control aesthetics: dense with information, architecturally calm. Every panel is a self-contained data unit. Every interaction is deliberate.",
-    tags: ["Figma","React UI","TypeScript","TailwindCSS","FastAPI","WebSockets","Supabase"],
-    links: { live: null, github: null, caseStudy: null }, accentColor: "#00FFB3",
+    id: "webtoon-redesign", title: "Webtoon Ecosystem Redesign",
+    category: ["Product Design", "UX Strategy"], status: "case-study", year: 2024,
+    shortDescription: "A strategic UX transformation of Webtoon's web platform, featuring a modular homepage, micro-personalization engine, and Canvas creator visibility upgrade.",
+    fullDescription: "Webtoon's current interface heavily favors established titles, suppressing discovery for new creators. This project is a comprehensive UX audit and strategic redesign focusing on creator visibility and user personalization. It replaces static infinite scroll with a modular, dynamic feed powered by a micro-personalization engine, aiming to balance editorial curation with algorithmic discovery.",
+    tags: ["UX Research", "Figma", "Design Strategy", "Prototyping", "ROI Projection", "Information Architecture"],
+    links: { live: null, github: "https://github.com/Ashborn-047/Webtoon-Ecosystem-Platform-Redesign-", caseStudy: null }, accentColor: "#FF4D6D",
     tech: [
-      { name: "React + TypeScript", role: "Component architecture for the dashboard grid. Each telemetry panel subscribes to its own data slice independently.", badge: "Frontend" },
-      { name: "WebSockets", role: "Real-time pipe from FastAPI backend. Sub-100ms latency for live car position and sector timing updates during a race.", badge: "Realtime" },
-      { name: "FastAPI", role: "Python backend handling Ergast API integration, data normalization, and WebSocket broadcast to all connected clients.", badge: "Backend" },
-      { name: "Supabase", role: "Stores historical race data, lap records, and driver season stats. Powers leaderboard and comparison views.", badge: "Database" },
-      { name: "Figma", role: "Full design system built before a single line of code — token-based color scales, component library, and responsive grid spec.", badge: "Design" },
+      { name: "Figma", role: "Built an exhaustive design system from the ground up, utilizing design tokens, auto-layout, and nested components.", badge: "Design" },
+      { name: "UX Strategy", role: "Synthesized qualitative data from user interviews and heuristic evaluations against established UX principles.", badge: "Strategy" },
+      { name: "Interactive Prototyping", role: "Developed high-fidelity interactive models to validate the proposed algorithmic discovery flows with actual users.", badge: "Validation" },
     ],
     usecases: [
-      { title: "Live Race Monitoring", desc: "Track all 20 cars simultaneously on a circuit map with real-time gap intervals and sector splits. Built for fans who want engineer-level data." },
-      { title: "Post-Race Analysis", desc: "Compare any two drivers across a full Grand Prix — lap-by-lap delta, tire strategy overlay, and pit stop impact visualization." },
-      { title: "Season Standings", desc: "Dynamic championship table updating after each race weekend with points projection and gap-to-leader calculations." },
+      { title: "Canvas Creator Upgrade", desc: "Introduced dedicated UX patterns to give indie creators a specific spotlight against established platform juggernauts." },
+      { title: "Micro-Personalization", desc: "Replaced the generic infinite scroll with a context-aware feed that adjusts density based on individual reading habits." },
+      { title: "Strategic ROI", desc: "Built with a deep focus on business impact, modeling how improved discovery loops directly increase time-in-app." },
     ],
-    built: ["Custom design system with 40+ reusable components and a token-based color scale","WebSocket room architecture supporting multiple concurrent race sessions","Circuit map renderer using SVG path interpolation from GPS coordinate data","Lap delta chart with animated playback scrubbing","Mobile-responsive layout that preserves data density"],
-    metrics: [{ val: "<100ms", label: "WS latency" },{ val: "40+", label: "Components" },{ val: "20", label: "Cars tracked" },{ val: "3", label: "Race views" }],
+    built: ["Comprehensive Figma design system with tokenized color palettes and responsive breakpoints","Interactive prototype mapping out the new algorithmic discovery journey","Synthesized UX research report with competitive analysis and heuristic scoring","Dev-ready design specs bridging the gap between design and engineering"],
+    metrics: [{ val: "80M+", label: "Target Audience" },{ val: "10+", label: "Heuristics Evaluated" },{ val: "60+", label: "Core Components" },{ val: "1", label: "Strategic Pivot" }],
   },
   {
-    id: "terminal-os", title: "Terminal OS",
-    category: ["Experience Design","Interaction"], status: "live", year: 2024,
-    shortDescription: "A portfolio reimagined as a personal OS — navigated entirely through a terminal interface. Identity rendering, memory archives, encrypted comms, project dossiers.",
-    fullDescription: "Terminal OS started as a question: what if a portfolio wasn't a page, but an operating system? Every interaction is a command. Every section is a filesystem path. The aesthetic is deliberate — a total rejection of the scroll-and-section format that every developer portfolio shares.",
-    tags: ["React","TypeScript","Framer Motion","CLI UI","Remix"],
-    links: { live: null, github: null, caseStudy: null }, accentColor: "#39FF14",
+    id: "silverwall", title: "SilverWall Telemetry",
+    category: ["Frontend Architecture", "Real-Time Data"], status: "in-progress", year: 2024,
+    shortDescription: "A live F1 telemetry dashboard featuring real-time car tracking on dynamic circuit maps, instant leaderboard updates, and driver data visualization.",
+    fullDescription: "SilverWall is a high-performance telemetry interface built to ingest and visualize live Formula 1 race data. Designed with strict 'mission control' aesthetics, it strips away visual noise to deliver incredibly dense, actionable data. It integrates with the OpenF1 API via a FastAPI Python backend, pushing sub-second updates to a responsive React frontend interface.",
+    tags: ["React", "FastAPI", "Python", "TailwindCSS", "OpenF1 API", "WebSockets", "Data Visualization"],
+    links: { live: null, github: "https://github.com/Ashborn-047/silverwall", caseStudy: null }, accentColor: "#00FFB3",
     tech: [
-      { name: "React + Remix", role: "Server-side rendering for fast initial load, then full client-side interactivity. Each directory maps to a Remix route.", badge: "Framework" },
-      { name: "TypeScript", role: "Full type safety on command parsing — every registered command has a typed signature, argument validator, and output renderer.", badge: "Language" },
-      { name: "Framer Motion", role: "Orchestrates typewriter output animation, cursor blink, and screen flicker effects without fighting React's render cycle.", badge: "Animation" },
-      { name: "Custom CLI Engine", role: "Hand-built command parser supporting flags, piped commands, history navigation, and tab completion.", badge: "Core" },
+      { name: "React + Tailwind", role: "Architected a highly decoupled component grid where individual telemetry panels manage their own real-time state independently.", badge: "Frontend" },
+      { name: "FastAPI", role: "Built a robust Python backend that ingests OpenF1 API data, normalizes it, and broadcasts to the connected frontend clients.", badge: "Backend" },
+      { name: "Simulation Engine", role: "Developed a demo mode with simulated race data to allow the dashboard to be fully interactive even outside of active race weekends.", badge: "Testing" },
+      { name: "SVG Interpolation", role: "Renders real-time GPS coordinates directly onto dynamically generated SVG circuit maps.", badge: "Graphics" },
     ],
     usecases: [
-      { title: "Developer Audience", desc: "Immediately signals technical depth. Building a terminal emulator in React is the portfolio as proof of work, not just proof of taste." },
-      { title: "Encrypted Contact", desc: "The contact system uses a fake PGP-style encryption UX — type a message, watch it encrypt, send it. Theater, but memorable theater." },
-      { title: "Project Dossiers", desc: "Each project lives at a filesystem path. cd /projects/silverwall opens a structured dossier with specs, screenshots, and links." },
+      { title: "Live Race Tracking", desc: "Monitor all 20 cars simultaneously on a dynamic circuit map with real-time interval gaps and sector splits." },
+      { title: "Driver Analytics Engine", desc: "Perform deep post-race comparisons with lap-by-lap delta charts and strategic impact visualizations." },
+      { title: "Demo Mode Availability", desc: "Allows recruiters and users to experience the live telemetry environment completely offline using simulated session data." },
     ],
-    built: ["Hand-built CLI parser with command registry, flags, and piped output","Typewriter animation engine with variable speed based on output type","Filesystem abstraction layer mapping React routes to terminal paths","Tab completion using prefix matching against the command registry","Mobile fallback with touch-friendly command drawer"],
-    metrics: [{ val: "30+", label: "Commands" },{ val: "0", label: "CLI deps" },{ val: "∞", label: "Easter eggs" }],
+    built: ["Custom UI component library completely optimized for extreme high-density data visualization","FastAPI backend bridging the gap between OpenF1 endpoints and client websockets","Live circuit map renderer interpolating complex SVG paths from raw GPS arrays","Simulated race engine for offline demonstration and testing"],
+    metrics: [{ val: "<100ms", label: "Latency Target" },{ val: "OpenF1", label: "Data Source" },{ val: "20", label: "Live Entities" },{ val: "3", label: "Data Views" }],
   },
   {
-    id: "webtoon-redesign", title: "Webtoon Redesign",
-    category: ["UX Strategy","Platform Redesign"], status: "case-study", year: 2024,
-    shortDescription: "Full UX deconstruction and redesign of Webtoon's web platform. Modular homepage, creator visibility system, and improved discovery flow.",
-    fullDescription: "Webtoon has a discovery problem. With 80M+ monthly readers, the platform's web experience still feels like 2015. This case study is a full UX audit and redesign — not a visual refresh, but a structural rethinking of how users find content and how creators get visibility against established titles.",
-    tags: ["UX Research","Figma","React","TypeScript","Prototyping"],
-    links: { live: null, github: null, caseStudy: null }, accentColor: "#FF4D6D",
+    id: "terminal-os", title: "The Terminal Simulator",
+    category: ["System Engineering", "Gamification"], status: "in-progress", year: 2024,
+    shortDescription: "A gamified, browser-based Linux terminal simulator featuring a sandboxed Virtual File System, 30+ native commands, and guided learning labs.",
+    fullDescription: "The Terminal is an ambitious dive into unconventional web architecture. It is not just a visual gimmick; it is a fully functioning, POSIX-inspired Linux terminal built entirely in React. Users can navigate a deeply sandboxed Virtual File System, run over 30 interactive commands (including pipes and flags), and complete guided gamified labs to master Linux from the inside out.",
+    tags: ["React", "TypeScript", "VFS", "OS Simulation", "Framer Motion", "Gamification"],
+    links: { live: null, github: "https://github.com/Ashborn-047/the-terminal", caseStudy: null }, accentColor: "#39FF14",
     tech: [
-      { name: "Figma", role: "Full redesign — component library, auto-layout grids, interactive prototype for usability testing, and a dev-ready design spec.", badge: "Design" },
-      { name: "UX Research", role: "5 user interviews, competitive analysis of Tapas, Naver, and Lezhin, and a heuristic evaluation against Nielsen's 10 principles.", badge: "Research" },
-      { name: "React Prototype", role: "High-fidelity interactive prototype to test the new discovery algorithm and homepage module behavior with real scroll physics.", badge: "Prototype" },
+      { name: "React Ecosystem", role: "Leveraged React's component model to build a highly responsive, state-driven terminal emulator with strict render constraints.", badge: "Framework" },
+      { name: "Virtual File System", role: "Implemented a robust, completely sandboxed VFS in memory, allowing users to safely create, read, and delete directories.", badge: "Architecture" },
+      { name: "Framer Motion", role: "Crafted subtle typewriter effects, blinking cursors, and authentic Neo-Brutalist screen transitions to deeply enhance immersion.", badge: "Animation" },
+      { name: "Custom CLI Parser", role: "Developed an entirely bespoke parser to handle piped commands, history traversal, complex flag parsing, and directory state management.", badge: "Core" },
     ],
     usecases: [
-      { title: "Creator Visibility", desc: "The algorithm buries new creators under established titles. Redesign introduces a Rising tier with editorial curation and genre spotlights." },
-      { title: "Improved Discovery", desc: "Replaced single-scroll homepage with a modular feed — users see different layouts based on reading history and genre preferences." },
-      { title: "Web-Native Reading", desc: "Reading experience was a direct port of the mobile app. Redesigned for horizontal viewport with keyboard navigation and progress persistence." },
+      { title: "Interactive Exploration", desc: "Encourages users to engage natively, using standard POSIX commands like `cd`, `ls`, and `cat` to discover content." },
+      { title: "Educational Labs", desc: "Includes integrated, gamified tutorials that guide users through complex Linux concepts in a safe, browser-based environment." },
+      { title: "Gamified Progression", desc: "Users earn XP and unlock levels by successfully executing commands and completing hidden puzzle objectives.", },
     ],
-    built: ["Full Figma component library with 60+ components across 3 breakpoints","Interactive prototype demonstrating the new discovery algorithm behavior","Annotated UX spec covering interaction patterns and edge cases","Competitive analysis report with gap mapping","Usability test script and synthesized findings from 5 participants"],
-    metrics: [{ val: "80M+", label: "Monthly readers" },{ val: "5", label: "Interviews" },{ val: "60+", label: "Figma components" },{ val: "3", label: "Breakpoints" }],
+    built: ["Robust command parser fully supporting arguments, flags, and advanced command chaining","Virtual filesystem state manager seamlessly syncing with React's concurrent render lifecycle","Typewriter animation engine heavily calibrated for variable and natural read speeds","A fully featured gamification loop tracking user XP and command proficiency"],
+    metrics: [{ val: "30+", label: "Native Commands" },{ val: "VFS", label: "Architecture" },{ val: "POSIX", label: "Compliance" }],
   },
   {
     id: "evolution-atlas", title: "Evolution Atlas",
-    category: ["Data Visualization","Editorial UI"], status: "in-progress", year: 2025,
-    shortDescription: "Interactive data visualization mapping evolutionary relationships and timelines. Cinematic UI with animated data structures built for exploration and storytelling.",
-    fullDescription: "Evolution Atlas is a data storytelling project — making the 4-billion-year history of life on Earth explorable and emotionally resonant. The core technical challenge: rendering a phylogenetic tree with hundreds of nodes at 60fps while supporting cinematic transitions between geological eras.",
-    tags: ["D3.js","React","TypeScript","3D Animation","WebGL"],
-    links: { live: null, github: null, caseStudy: null }, accentColor: "#7C3AED",
+    category: ["Creative Computation", "Digital Museum"], status: "live", year: 2024,
+    shortDescription: "A curated digital museum of Interface Design. An interactive showcase exploring how UI/UX, typography, and shaders have transformed across decades.",
+    fullDescription: "Evolution Atlas is an interactive journey through the history of digital design. It features 7 meticulously curated experiments that trace the evolution of interfaces—from static tools to ambient computing. The project combines kinetic typography, liquid shaders, and advanced color theory systems to create a deeply immersive, educational experience about the medium we use every day.",
+    tags: ["React", "Three.js", "WebGL", "GSAP", "Creative Coding", "Shaders"],
+    links: { live: null, github: "https://github.com/Ashborn-047/evolution-atlas", caseStudy: null }, accentColor: "#7C3AED",
     tech: [
-      { name: "D3.js", role: "Force-directed graph layout for the phylogenetic tree. Custom force functions prevent node overlap while maintaining biological clustering.", badge: "Visualization" },
-      { name: "React", role: "Manages timeline state, era transitions, and the detail panel on node selection. D3 and React own separate DOM subtrees.", badge: "Framework" },
-      { name: "WebGL / Three.js", role: "Background particle system representing geological time — each particle is a rendered era, animated by the active timeline position.", badge: "3D" },
-      { name: "TypeScript", role: "Strict typing on the evolutionary data model — species, relationships, timestamps, and extinction events all validated against schema.", badge: "Language" },
+      { name: "Three.js + WebGL", role: "Powers the highly complex background environments, including custom liquid shaders and particle-based time representations.", badge: "3D Graphics" },
+      { name: "GSAP", role: "Orchestrates buttery-smooth, cinematic timeline animations for kinetic typography and era transitions.", badge: "Animation" },
+      { name: "React", role: "Manages the overarching application state, route transitions, and the deeply interactive exhibit panels.", badge: "Framework" },
+      { name: "Shader Programming", role: "Written custom GLSL shaders to simulate organic, fluid interfaces that react in real-time to user input.", badge: "Core" },
     ],
     usecases: [
-      { title: "Educational Exploration", desc: "Navigate from the origins of life through mass extinction events to modern species — all in one continuous interactive space." },
-      { title: "Research Reference", desc: "Query the dataset for specific clades, filter by geological era, and export subgraphs for papers and presentations." },
-      { title: "Storytelling Mode", desc: "A guided story mode narrates key moments in evolutionary history with cinematic camera moves and time-lapse era transitions." },
+      { title: "Design Education", desc: "Serves as an interactive textbook for young designers to understand the historical context of modern UX paradigms." },
+      { title: "Shader Exploration", desc: "Provides an isolated environment to study the performance characteristics of complex fragment shaders on the web." },
+      { title: "Cinematic Showcase", desc: "Acts as a technical flex, demonstrating the absolute limits of browser-based real-time rendering and GSAP orchestration." },
     ],
-    built: ["Custom D3 force simulation with biological clustering constraints","Era transition system with morphing graph layouts and animated node paths","Species detail panel pulling from a structured JSON dataset of 400+ entries","Timeline scrubber with geological era markers and extinction annotations","WebGL particle background synchronized to the active era"],
-    metrics: [{ val: "400+", label: "Species nodes" },{ val: "60fps", label: "Target render" },{ val: "4B yrs", label: "Timeline span" }],
-  },
-  {
-    id: "lifesync", title: "LifeSync",
-    category: ["Product Design","AI System"], status: "in-progress", year: 2025,
-    shortDescription: "AI-powered personal OS. Behavioral analytics, adaptive user personas, cross-platform automation, and a full design system — unifying fragmented digital life.",
-    fullDescription: "LifeSync is the most ambitious project here — a personal operating system powered by behavioral AI. Your digital life is fragmented across dozens of apps. LifeSync is the coherence layer. It learns your patterns, surfaces insights, and automates the connective tissue between tools you already use.",
-    tags: ["Figma","Design System","React","TypeScript","FastAPI","LLM Integration"],
-    links: { live: null, github: null, caseStudy: null }, accentColor: "#F59E0B",
-    tech: [
-      { name: "Figma Design System", role: "120+ component library with token-based theme system supporting light and dark modes. Built to scale across mobile, tablet, desktop.", badge: "Design" },
-      { name: "React + TypeScript", role: "Frontend shell with plugin architecture — each integrated service renders into a standardized card with a consistent data contract.", badge: "Frontend" },
-      { name: "FastAPI + LLM", role: "Backend orchestration: receives behavioral events, runs pattern analysis via LLM, generates personalized insight summaries and automation suggestions.", badge: "AI Backend" },
-      { name: "Cross-platform Sync", role: "Webhook integrations with Notion, Google Calendar, Spotify, and GitHub. All events normalized into a single activity stream.", badge: "Integration" },
-    ],
-    usecases: [
-      { title: "Daily Briefing", desc: "Every morning, LifeSync generates a personalized briefing — calendar context, tasks ranked by behavioral priority, and a focus recommendation." },
-      { title: "Behavioral Patterns", desc: "Tracks when you're most productive, what music correlates with deep work, which task types you consistently defer — surfaces it as actionable cards." },
-      { title: "Automation Suggestions", desc: "Notices you manually move every GitHub issue to Notion after merging — suggests and builds that automation with one tap." },
-    ],
-    built: ["120+ component Figma design system with token-based theming","Plugin architecture allowing new service integrations without core changes","LLM-powered pattern analysis pipeline with structured output schemas","Behavioral event stream normalizer across 4 integrated platforms","Adaptive persona engine that shifts UI density based on detected focus state"],
-    metrics: [{ val: "120+", label: "DS components" },{ val: "4", label: "Integrations" },{ val: "1", label: "Coherence layer" }],
+    built: ["Seven entirely distinct, deeply interactive experiments representing different eras of UI design","Custom-tuned liquid fragment shaders capable of hitting 60fps on mobile devices","Complex GSAP timelines perfectly synchronized with WebGL camera pans","A robust, accessible React shell wrapping deeply experimental canvas contexts"],
+    metrics: [{ val: "7", label: "Curated Exhibits" },{ val: "60fps", label: "Render Target" },{ val: "WebGL", label: "Rendering Core" }],
   },
   {
     id: "svg-forge", title: "SVG Forge",
-    category: ["SVG","Animation Lab"], status: "live", year: 2024,
-    shortDescription: "Zero-dependency SVG animation laboratory. Stroke draw-ons, shape morphing, glitch scramble, turbulence distortion, glow pulse — all live and editable.",
-    fullDescription: "SVG Forge is a sandbox for pushing what is possible with pure SVG and CSS — no canvas, no WebGL, no JS animation libraries. Every effect is driven by SVG filters, SMIL animations, or CSS keyframes. It started as a personal reference tool and became a public laboratory.",
-    tags: ["HTML5","CSS3","Vanilla JS","SVG SMIL","SVG Filters","Zero Deps"],
-    links: { live: null, github: null, caseStudy: null }, accentColor: "#06B6D4",
+    category: ["Creative Coding", "Developer Tooling"], status: "live", year: 2024,
+    shortDescription: "An interactive animation lab for mastering pure SVG techniques. Live previews, real-time parameter tweaking, editable code, and zero dependencies.",
+    fullDescription: "Born from the frustration of bloated animation libraries, SVG Forge is a pure, unadulterated sandbox for vector manipulation. It relies entirely on native SVG filters, declarative SMIL animations, and CSS keyframes—bypassing external dependencies entirely. It features live previews and step-by-step tutorials, making it the ultimate tool for developers looking to master low-level SVG graphics.",
+    tags: ["SVG SMIL", "SVG Filters", "Vanilla JS", "Zero Dependencies", "CSS3", "Interactive Tutorials"],
+    links: { live: null, github: "https://github.com/Ashborn-047/svg-forge", caseStudy: null }, accentColor: "#06B6D4",
     tech: [
-      { name: "SVG Filters", role: "The core of every effect — feTurbulence for distortion, feGaussianBlur + feComposite for glow, feColorMatrix for glitch color shifts.", badge: "Core" },
-      { name: "SMIL Animations", role: "Declarative SVG animations for stroke draw-on, shape morphing, and attribute interpolation — all in markup, no JS.", badge: "Animation" },
-      { name: "CSS Keyframes", role: "Handles timing orchestration for multi-step effects and pulse/flicker loops that SMIL cannot express cleanly.", badge: "Styling" },
-      { name: "Vanilla JS", role: "Powers the live editor — parsing input, regenerating SVG markup, and updating the preview in real time. Zero framework overhead.", badge: "Editor" },
+      { name: "Advanced SVG Filters", role: "Exploits low-level primitives like `feTurbulence` for distortion, `feColorMatrix` for glitches, and `feDisplacementMap` for fluid liquid effects.", badge: "Core" },
+      { name: "Native SMIL Animations", role: "Utilizes highly performant native declarative syntax for complex path morphing and stroke orchestration without relying on heavy JavaScript loops.", badge: "Animation" },
+      { name: "CSS Keyframes", role: "Handles intricate macro-timing and infinite loop orchestration where standard SMIL falls short.", badge: "Styling" },
+      { name: "Vanilla JS Engine", role: "Drives the live-editing interface, parsing user input and regenerating complex DOM nodes instantaneously with absolutely zero framework overhead.", badge: "Editor" },
     ],
     usecases: [
-      { title: "Developer Reference", desc: "A living reference for SVG filter primitives and SMIL syntax — the thing you bookmark when deep in a CSS animation rabbit hole." },
-      { title: "Design Prototyping", desc: "Designers tweak turbulence frequency, blur radius, and color matrices live and export the exact SVG markup to drop into their project." },
-      { title: "Learning Resource", desc: "Every effect has its SVG markup exposed in an editable panel. Change a value, see it update instantly — the fastest way to understand feTurbulence." },
+      { title: "Rapid Visual Prototyping", desc: "Designers can visually tweak turbulence frequencies and color matrices in real-time, instantly exporting production-ready markup." },
+      { title: "Interactive Tutorials", desc: "Acts as an interactive textbook for highly obscure SVG primitives, guiding the user step-by-step through complex filter chains." },
+      { title: "Lightweight Asset Generation", desc: "Creates incredibly lightweight, resolution-independent glitch and glow effects that vastly outperform traditional raster assets." },
     ],
-    built: ["12 distinct SVG animation effects with isolated markup and live controls","Live editor with real-time SVG regeneration and syntax-highlighted output panel","Export function generating clean minimal SVG files with no inline scripts","Zero-dependency architecture — the entire tool is a single HTML file","Filter primitive documentation panel with MDN-linked property references"],
-    metrics: [{ val: "12", label: "Effects" },{ val: "0", label: "Dependencies" },{ val: "1", label: "HTML file" },{ val: "∞", label: "Combinations" }],
+    built: ["A dedicated suite of highly customizable, deeply isolated SVG animation templates","A pure zero-dependency live code editor featuring instant visual feedback loops","A robust step-by-step tutorial engine teaching low-level SMIL and filter concepts","Interactive, comprehensive documentation for highly complex filter primitives"],
+    metrics: [{ val: "100%", label: "Native Markup" },{ val: "0", label: "Dependencies" },{ val: "Live", label: "Editing Env" }],
   },
+  {
+    id: "solar-core", title: "Solar Core Explorer",
+    category: ["Web3D", "Physics Simulation"], status: "live", year: 2024,
+    shortDescription: "A high-fidelity, interactive 3D solar system explorer featuring procedural planetary physics, orbital mechanics, and a deep telemetry HUD.",
+    fullDescription: "Solar Core Explorer is a robust WebGL simulation modeling planetary bodies with procedural textures, atmospheric scattering, and accurate orbital physics. Beyond being a visual spectacle, it includes a deep telemetry Head-Up Display (HUD) that tracks real-time planetary metrics—orbit velocities, atmospheric composition, and axial tilt—in a beautiful, sci-fi inspired interface.",
+    tags: ["Three.js", "WebGL", "Procedural Generation", "Physics", "React", "Shaders"],
+    links: { live: null, github: "https://github.com/Ashborn-047/Solar-Core-Explorer", caseStudy: null }, accentColor: "#EAB308",
+    tech: [
+      { name: "Three.js", role: "Handles the entire 3D scenegraph, camera controllers, and rendering pipeline for the complex planetary bodies.", badge: "3D Engine" },
+      { name: "Procedural Textures", role: "Generates high-resolution surface maps and cloud layers dynamically using noise algorithms, reducing total asset payload.", badge: "Graphics" },
+      { name: "Orbital Mechanics", role: "Simulates physically accurate planetary rotations and orbital paths relative to a central light source.", badge: "Physics" },
+      { name: "React Telemetry HUD", role: "Overlays the 3D canvas with a highly reactive, sci-fi inspired telemetry dashboard tracking live physics variables.", badge: "Interface" },
+    ],
+    usecases: [
+      { title: "Procedural Exploration", desc: "Fly seamlessly between planetary bodies, observing unique, mathematically generated surface details up close." },
+      { title: "Educational Simulation", desc: "View real-time telemetry data regarding orbital speeds and atmospheric composition in an engaging format." },
+      { title: "Performance Profiling", desc: "Showcases techniques for managing massive polygon counts and complex shaders while maintaining 60fps in the browser." },
+    ],
+    built: ["Procedural noise generation engine for mapping planet surfaces and atmospheres","Physically-based rendering (PBR) pipeline optimized for browser environments","Interactive orbital camera system allowing seamless zoom from macro to micro scale","A deep, data-rich telemetry dashboard built in React that syncs with WebGL state"],
+    metrics: [{ val: "Procedural", label: "Texturing" },{ val: "60fps", label: "Render Target" },{ val: "WebGL", label: "API Base" }],
+  },
+  {
+    id: "lifesync", title: "LifeSync",
+    category: ["AI Orchestration", "Systems Architecture"], status: "in-progress", year: 2025,
+    shortDescription: "A modular, AI-powered personal operating system unifying behavioral analytics, adaptive personas, and seamless cross-platform automation.",
+    fullDescription: "LifeSync acts as the ultimate coherence layer over modern digital fragmentation. Built to scale from prototype to production with a clean, event-driven architecture, it leverages Large Language Models to identify deep patterns, generate highly actionable insights, and automate repetitive tasks across various platforms. It completely transcends the concept of an app, acting instead as an adaptive digital assistant.",
+    tags: ["React", "TypeScript", "FastAPI", "LLM Integration", "Event-Driven", "System Design"],
+    links: { live: null, github: "https://github.com/Ashborn-047/Lifesync", caseStudy: null }, accentColor: "#F59E0B",
+    tech: [
+      { name: "Adaptive Design System", role: "A highly robust, multi-theme component library explicitly built to ensure visual consistency across incredibly diverse data representations.", badge: "Design" },
+      { name: "Event-Driven Architecture", role: "Built to scale from prototype to production by relying on a decoupled event bus to handle cross-platform triggers.", badge: "Architecture" },
+      { name: "FastAPI + LLM Engine", role: "The critical orchestration layer that rapidly processes webhook events, queries the LLM for behavioral insights, and returns highly structured actions.", badge: "Backend" },
+      { name: "Cross-Platform Sync Layer", role: "Aggregates massive data streams from platforms like Notion, GitHub, and calendars into a single, beautifully normalized timeline.", badge: "Integration" },
+    ],
+    usecases: [
+      { title: "Intelligent Morning Briefings", desc: "Automatically synthesizes overnight activity and upcoming deadlines into a concise, highly actionable morning summary dashboard." },
+      { title: "Deep Pattern Recognition", desc: "Identifies incredibly subtle productivity trends, correlating variables like time-of-day and application usage with actual output quality." },
+      { title: "Proactive Workflow Automation", desc: "Actively observes repetitive manual actions across apps and proactively suggests automated macros to instantly replace them." },
+    ],
+    built: ["A completely unified, plugin-agnostic frontend dashboard fully capable of handling diverse data streams","A highly sophisticated LLM prompt pipeline designed to extract structured JSON insights from chaotic unstructured activity logs","A perfectly normalized event architecture seamlessly handling high-volume webhooks from 4 distinct APIs","An adaptive UI engine that dynamically shifts visual density based on the user's inferred focus state"],
+    metrics: [{ val: "120+", label: "UI Components" },{ val: "Event", label: "Driven" },{ val: "1", label: "Unified Layer" }],
+  }
 ];
 
 function RuneCanvas() {
@@ -277,6 +297,18 @@ function ProjectVisual({project}) {
           ctx.fillStyle=lg;ctx.fillRect(20,ty2,tw*(b.f/100),3);
           ctx.fillStyle=`rgba(${rgb},.8)`;ctx.font="8px monospace";ctx.fillText(`${b.f}%`,W-28,y+26);
         });
+      } else if(project.id==="solar-core"){
+        const cx=W/2,cy=H/2;
+        const g=ctx.createRadialGradient(cx,cy,0,cx,cy,W*.4);
+        g.addColorStop(0,`rgba(${rgb},.15)`);g.addColorStop(1,"transparent");
+        ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+        ctx.fillStyle=`rgba(${rgb},.9)`;ctx.shadowColor=project.accentColor;ctx.shadowBlur=15;
+        ctx.beginPath();ctx.arc(cx,cy,12,0,Math.PI*2);ctx.fill();
+        ctx.strokeStyle=`rgba(${rgb},.3)`;ctx.lineWidth=1;
+        ctx.beginPath();ctx.ellipse(cx,cy,W*.3,H*.2,Math.PI/6,0,Math.PI*2);ctx.stroke();
+        const a=t*.015,px=cx+Math.cos(a)*W*.3*Math.cos(Math.PI/6)-Math.sin(a)*H*.2*Math.sin(Math.PI/6),py=cy+Math.cos(a)*W*.3*Math.sin(Math.PI/6)+Math.sin(a)*H*.2*Math.cos(Math.PI/6);
+        ctx.fillStyle="rgba(255,255,255,.9)";ctx.shadowColor="#fff";ctx.shadowBlur=5;
+        ctx.beginPath();ctx.arc(px,py,3,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
       } else if(project.id==="svg-forge"){
         ctx.strokeStyle=`rgba(${rgb},.7)`;ctx.lineWidth=2;ctx.setLineDash([6,3]);
         ctx.beginPath();ctx.moveTo(W*.06,H*.85);ctx.bezierCurveTo(W*.3,H*.1,W*.55,H*.9,W*.94,H*.2);ctx.stroke();
@@ -308,26 +340,15 @@ function StatusBadge({status,small=false}){
 function ProjectCard({project,index,onOpen,isMobile}){
   const [hov,setHov]=useState(false);
   const rgb=hexToRgb(project.accentColor);
-  return(
-    <div
-      onClick={()=>onOpen(project)}
-      onMouseEnter={()=>setHov(true)}
-      onMouseLeave={()=>setHov(false)}
-      style={{
-        display:"grid",
-        gridTemplateColumns:isMobile?"1fr":"260px 1fr",
-        gridTemplateRows:isMobile?"180px auto":undefined,
-        minHeight:isMobile?"auto":230,
-        border:`1px solid ${hov?`rgba(${rgb},.3)`:"rgba(255,255,255,.05)"}`,
-        background:hov?`rgba(${rgb},.022)`:"rgba(255,255,255,.012)",
-        cursor:"pointer",position:"relative",overflow:"hidden",
-        transition:"border-color .3s,background .3s",
-      }}
-    >
-      <div style={{position:"absolute",inset:0,background:`radial-gradient(ellipse 60% 80% at ${isMobile?"50% 0%":"0% 50%"},rgba(${rgb},.05),transparent)`,opacity:hov?1:0,transition:"opacity .4s",pointerEvents:"none"}}/>
-      <div style={{borderRight:isMobile?"none":"1px solid rgba(255,255,255,.05)",borderBottom:isMobile?"1px solid rgba(255,255,255,.05)":"none",position:"relative",overflow:"hidden",height:isMobile?180:"auto"}}>
+  const isEven = index % 2 === 0;
+
+  const visualBlock = (
+      <div style={{borderRight:isMobile?"none":(isEven ? "1px solid rgba(255,255,255,.05)" : "none"),borderLeft:isMobile?"none":(!isEven ? "1px solid rgba(255,255,255,.05)" : "none"),borderBottom:isMobile?"1px solid rgba(255,255,255,.05)":"none",position:"relative",overflow:"hidden",height:isMobile?180:"auto"}}>
         <ProjectVisual project={project}/>
       </div>
+  );
+
+  const textBlock = (
       <div style={{padding:isMobile?"18px 16px 22px":"28px 32px",display:"flex",flexDirection:"column"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:8,marginBottom:10}}>
           <span style={{fontSize:isMobile?8:9,letterSpacing:"0.12em",color:"rgba(168,85,247,.7)",lineHeight:1.4}}>
@@ -351,13 +372,35 @@ function ProjectCard({project,index,onOpen,isMobile}){
             <span style={{fontSize:9,color:"rgba(138,154,170,.3)",padding:"3px 6px"}}>+{project.tags.length-3}</span>
           )}
         </div>
-        <div style={{display:"flex",justifyContent:"flex-end"}}>
+        <div style={{display:"flex",justifyContent:isEven ? "flex-end" : "flex-start"}}>
           <span style={{fontSize:9,letterSpacing:"0.12em",color:`rgba(${rgb},.8)`,opacity:isMobile?1:hov?1:0,transform:(isMobile||hov)?"translateX(0)":"translateX(-6px)",transition:"all .25s",fontFamily:"'Courier New',monospace"}}>
             VIEW DETAILS →
           </span>
         </div>
       </div>
-      <div style={{position:"absolute",bottom:14,right:16,fontSize:10,color:"rgba(255,255,255,.06)",letterSpacing:"0.1em",fontFamily:"'Courier New',monospace"}}>
+  );
+
+  return(
+    <div
+      onClick={()=>onOpen(project)}
+      onMouseEnter={()=>setHov(true)}
+      onMouseLeave={()=>setHov(false)}
+      style={{
+        display:"grid",
+        gridTemplateColumns:isMobile?"1fr":(isEven ? "260px 1fr" : "1fr 260px"),
+        gridTemplateRows:isMobile?"180px auto":undefined,
+        minHeight:isMobile?"auto":230,
+        border:`1px solid ${hov?`rgba(${rgb},.3)`:"rgba(255,255,255,.05)"}`,
+        background:hov?`rgba(${rgb},.022)`:"rgba(255,255,255,.012)",
+        cursor:"pointer",position:"relative",overflow:"hidden",
+        transition:"border-color .3s,background .3s",
+      }}
+    >
+      <div style={{position:"absolute",inset:0,background:`radial-gradient(ellipse 60% 80% at ${isMobile?"50% 0%":(isEven ? "0% 50%" : "100% 50%")},rgba(${rgb},.05),transparent)`,opacity:hov?1:0,transition:"opacity .4s",pointerEvents:"none"}}/>
+      
+      {isMobile ? <>{visualBlock}{textBlock}</> : (isEven ? <>{visualBlock}{textBlock}</> : <>{textBlock}{visualBlock}</>)}
+      
+      <div style={{position:"absolute",bottom:14,right: isEven ? 16 : undefined, left: isEven ? undefined : 16, fontSize:10,color:"rgba(255,255,255,.06)",letterSpacing:"0.1em",fontFamily:"'Courier New',monospace"}}>
         0{index+1}
       </div>
     </div>
@@ -559,7 +602,7 @@ export default function App(){
         </div>
 
         {/* cards */}
-        <div style={{display:"flex",flexDirection:"column",gap:isMobile?3:2}}>
+        <div style={{display:"flex",flexDirection:"column",gap:isMobile?16:40}}>
           {filtered.map((p,i)=>(
             <ProjectCard key={p.id} project={p} index={i} onOpen={setSelected} isMobile={isMobile}/>
           ))}
