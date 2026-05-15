@@ -28,8 +28,8 @@ const PROJECTS = [
   {
     id: "webtoon-redesign", title: "Webtoon Ecosystem Redesign",
     category: ["Frontend Architecture", "UX Transformation"], status: "case-study", year: 2025,
-    shortDescription: "A strategic UX transformation of Webtoon's web platform, featuring a modular homepage, enhanced profile management, and a robust Canvas creator discovery engine.",
-    fullDescription: "This project is a comprehensive UX demonstration prototype of the Webtoon platform built with Next.js and Tailwind CSS. It prioritizes aesthetic fidelity, behavioral depth, and storytelling polish. Key features include a fully collapsible navigation rail, an enhanced homepage with personalized recommendations and progress indicators, and dedicated profile and creator discovery pages. The UI replaces static lists with dynamic, responsive grid layouts to balance editorial curation with algorithmic discovery.",
+    shortDescription: "A strategic UX transformation resolving critical layout bugs, horizontal overflow issues, and clunky navigation within the Webtoon interface.",
+    fullDescription: "Webtoon's previous interface suffered from jarring horizontal overflow issues, an inflexible navigation structure, and a severe lack of visual feedback. This Next.js prototype directly addresses these UX flaws. It implements a smooth, fully collapsible navigation rail to optimize screen real estate and enforces strict layout boundaries to eliminate horizontal scrolling bugs. Furthermore, it enhances behavioral depth by introducing clear 'Webtoon Green' hover states, intuitive scroll-navigation for the 'Continue Reading' sections, and modernized profile tabs featuring rounded edges and subtle glows.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand", "Radix UI"],
     links: { live: "https://ashborn-047.github.io/Webtoon-Ecosystem-Platform-Redesign-/", github: "https://github.com/Ashborn-047/Webtoon-Ecosystem-Platform-Redesign-", caseStudy: null }, accentColor: "#00DC64",
     tech: [
@@ -38,9 +38,9 @@ const PROJECTS = [
       { name: "Zustand", role: "Managed complex cross-component state, specifically for the collapsible navigation and user progress tracking.", badge: "State" },
     ],
     usecases: [
-      { title: "Collapsible Navigation Rail", desc: "A smooth sidebar with logo toggle and 300ms transition animations, maintaining visual hierarchy across devices." },
-      { title: "Enhanced Homepage", desc: "Features a hero carousel, 'Continue Reading' sections with progress bars, and daily updates filterable by day of the week." },
-      { title: "Creator Discovery", desc: "Includes dedicated Canvas sections, creator activity feeds, and refined follow mechanisms to boost indie visibility." },
+      { title: "Resolving Navigation Flow", desc: "Fixed clunky static sidebars by introducing a fully collapsible navigation rail with 300ms smooth transitions and logo-toggle functionality." },
+      { title: "Fixing Layout Overflow", desc: "Completely eliminated horizontal overflow issues that previously broke the layout on smaller viewports, ensuring a strict responsive grid." },
+      { title: "Enhancing Visual Feedback", desc: "Added missing interactive states, including 'Webtoon Green' hover effects, refined profile tab glows, and active-state indicators." },
     ],
     built: ["Responsive Next.js application tailored for mobile, tablet, and desktop viewports","Complex UI state management using Zustand and custom hooks","Aesthetic layout using Radix UI primitives and Tailwind utility classes","Automated GitHub Pages deployment pipeline using GitHub Actions"],
     metrics: [{ val: "Next 14", label: "App Router" },{ val: "Tailwind", label: "Styling" },{ val: "Zustand", label: "State Layer" },{ val: "Radix", label: "Primitives" }],
