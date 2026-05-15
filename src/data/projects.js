@@ -129,23 +129,28 @@ export const PROJECTS = [
   {
     id: "svg-forge", title: "SVG Forge",
     category: ["Creative Coding", "Developer Tooling"], status: "live", year: 2024,
-    shortDescription: "An interactive animation lab for mastering pure SVG techniques. Live previews, real-time parameter tweaking, editable code, and zero dependencies.",
-    fullDescription: "Born from the frustration of bloated animation libraries, SVG Forge is a pure, unadulterated sandbox for vector manipulation. It relies entirely on native SVG filters, declarative SMIL animations, and CSS keyframes—bypassing external dependencies entirely. It features live previews and step-by-step tutorials, making it the ultimate tool for developers looking to master low-level SVG graphics.",
-    tags: ["SVG SMIL", "SVG Filters", "Vanilla JS", "Zero Dependencies", "CSS3", "Interactive Tutorials"],
-    links: { live: "https://ashborn-047.github.io/svg-forge/", github: "https://github.com/Ashborn-047/svg-forge", caseStudy: null }, accentColor: "#06B6D4",
+    shortDescription: "A zero-dependency animation laboratory for mastering pure SVG techniques — from SMIL motion to filter distortions.",
+    fullDescription: "SVG Forge is an interactive animation laboratory dedicated to the art of vector motion. It serves as a comprehensive reference and playground for mastering SVG techniques—from classic stroke-draw animations to advanced filter distortions and SMIL motion paths. The project empowers developers to deeply understand the 'how' and 'why' behind vector graphics through real-time parameter tweaking and an integrated live code editor.",
+    tags: ["Vanilla JS", "SVG", "SMIL", "CSS3", "Design Systems"],
+    links: { live: "https://ashborn-047.github.io/svg-forge/", github: "https://github.com/Ashborn-047/svg-forge", caseStudy: null }, accentColor: "#00D4FF",
     tech: [
-      { name: "Advanced SVG Filters", role: "Exploits low-level primitives like `feTurbulence` for distortion, `feColorMatrix` for glitches, and `feDisplacementMap` for fluid liquid effects.", badge: "Core" },
-      { name: "Native SMIL Animations", role: "Utilizes highly performant native declarative syntax for complex path morphing and stroke orchestration without relying on heavy JavaScript loops.", badge: "Animation" },
-      { name: "CSS Keyframes", role: "Handles intricate macro-timing and infinite loop orchestration where standard SMIL falls short.", badge: "Styling" },
-      { name: "Vanilla JS Engine", role: "Drives the live-editing interface, parsing user input and regenerating complex DOM nodes instantaneously with absolutely zero framework overhead.", badge: "Editor" },
+      { name: "Vanilla JS Engine", role: "Drives the live-editing interface, parsing user input and regenerating complex DOM nodes with zero framework overhead.", badge: "Core" },
+      { name: "SMIL & Filters", role: "The engine for all animations, utilizing native <animate> tags and complex filter primitives like feTurbulence.", badge: "Graphics" },
+      { name: "Pure CSS", role: "Implements a high-contrast, Neo-Brutalist design system with glassmorphism and responsive layouts.", badge: "Design" },
     ],
-    usecases: [
-      { title: "Rapid Visual Prototyping", desc: "Designers can visually tweak turbulence frequencies and color matrices in real-time, instantly exporting production-ready markup." },
-      { title: "Interactive Tutorials", desc: "Acts as an interactive textbook for highly obscure SVG primitives, guiding the user step-by-step through complex filter chains." },
-      { title: "Lightweight Asset Generation", desc: "Creates incredibly lightweight, resolution-independent glitch and glow effects that vastly outperform traditional raster assets." },
+    exhibits: [
+      { title: "Stroke Master", desc: "Mastering the stroke-dasharray technique for organic path-drawing effects and reveal animations.", link: "https://ashborn-047.github.io/svg-forge/" },
+      { title: "Filter Lab", desc: "Exploring displacement mapping and turbulence to create organic, procedural textures in-browser.", link: "https://ashborn-047.github.io/svg-forge/" },
+      { title: "Motion Paths", desc: "Utilizing animateMotion to move elements along complex, non-linear trajectories without external libraries.", link: "https://ashborn-047.github.io/svg-forge/" },
+      { title: "Morph Engine", desc: "Seamlessly transitioning between different vector shapes and paths using native SMIL interpolation.", link: "https://ashborn-047.github.io/svg-forge/" }
     ],
-    built: ["A dedicated suite of highly customizable, deeply isolated SVG animation templates","A pure zero-dependency live code editor featuring instant visual feedback loops","A robust step-by-step tutorial engine teaching low-level SMIL and filter concepts","Interactive, comprehensive documentation for highly complex filter primitives"],
-    metrics: [{ val: "100%", label: "Native Markup" },{ val: "0", label: "Dependencies" },{ val: "Live", label: "Editing Env" }],
+    built: [
+      "Real-time SVG template engine with live parameter controls and instant re-rendering",
+      "Integrated Monaco-style code editor for direct SMIL and filter markup manipulation",
+      "Fuzzy-search command palette (⌘K) for rapid navigation across 20+ animation workshops",
+      "Progressive walkthrough system for step-by-step code reveals and technical explanations"
+    ],
+    metrics: [{ val: "0", label: "Dependencies" },{ val: "100%", label: "Native SMIL" },{ val: "60fps", label: "Vector Motion" },{ val: "20+", label: "Workshops" }],
   },
   {
     id: "solar-core", title: "Solar Core Explorer",

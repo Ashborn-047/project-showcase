@@ -136,14 +136,28 @@ export function ProjectVisual({project}) {
         ctx.fillStyle="rgba(255,255,255,.9)";ctx.shadowColor="#fff";ctx.shadowBlur=5;
         ctx.beginPath();ctx.arc(px,py,3,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
       } else if(project.id==="svg-forge"){
-        ctx.strokeStyle=`rgba(${rgb},.7)`;ctx.lineWidth=2;ctx.setLineDash([6,3]);
-        ctx.beginPath();ctx.moveTo(W*.06,H*.85);ctx.bezierCurveTo(W*.3,H*.1,W*.55,H*.9,W*.94,H*.2);ctx.stroke();
-        ctx.setLineDash([]);ctx.strokeStyle=`rgba(${rgb},.28)`;ctx.lineWidth=1;
-        ctx.beginPath();ctx.moveTo(W*.1,H*.95);ctx.bezierCurveTo(W*.35,H*.2,W*.6,H*.85,W*.9,H*.15);ctx.stroke();
-        [[W*.06,H*.85],[W*.94,H*.2],[W*.5,H*.5]].forEach(([x,y])=>{
-          ctx.fillStyle=`rgba(${rgb},.9)`;ctx.shadowColor=project.accentColor;ctx.shadowBlur=8;
-          ctx.beginPath();ctx.arc(x,y,4.5,0,Math.PI*2);ctx.fill();
-        });ctx.shadowBlur=0;
+        const speed=t*.015,os=Math.sin(speed)*20,os2=Math.cos(speed*0.7)*15;
+        const p1={x:W*.1,y:H*.8},p2={x:W*.9,y:H*.2};
+        const cp1={x:W*.3,y:H*.1+os},cp2={x:W*.6,y:H*.9-os2};
+        ctx.strokeStyle=`rgba(${rgb},.6)`;ctx.lineWidth=2;ctx.setLineDash([8,4]);
+        ctx.lineDashOffset=-t*0.8;
+        ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.bezierCurveTo(cp1.x,cp1.y,cp2.x,cp2.y,p2.x,p2.y);ctx.stroke();
+        ctx.setLineDash([]);ctx.strokeStyle=`rgba(${rgb},.15)`;ctx.lineWidth=1;
+        ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.bezierCurveTo(cp1.x,cp1.y,cp2.x,cp2.y,p2.x,p2.y);ctx.stroke();
+        const getP=(p)=>{
+          const mt=1-p,mt2=mt*mt,mt3=mt2*mt,t2=p*p,t3=t2*p;
+          return{
+            x:mt3*p1.x+3*mt2*p*cp1.x+3*mt*t2*cp2.x+t3*p2.x,
+            y:mt3*p1.y+3*mt2*p*cp1.y+3*mt*t2*cp2.y+t3*p2.y
+          };
+        };
+        [0,0.5,1].forEach(p=>{
+          const pos=getP(p);ctx.fillStyle=`rgba(${rgb},.9)`;ctx.shadowColor=project.accentColor;ctx.shadowBlur=10;
+          ctx.beginPath();ctx.arc(pos.x,pos.y,4.5,0,Math.PI*2);ctx.fill();
+        });
+        const slideP=(t*.006)%1,sp=getP(slideP);
+        ctx.fillStyle="#fff";ctx.shadowColor="#fff";ctx.shadowBlur=12;ctx.beginPath();ctx.arc(sp.x,sp.y,3.5,0,Math.PI*2);ctx.fill();
+        ctx.shadowBlur=0;
       }
       rafRef.current=requestAnimationFrame(draw);
     };

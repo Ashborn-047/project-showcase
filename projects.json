@@ -111,14 +111,13 @@
     ],
     "status": "live",
     "year": 2024,
-    "shortDescription": "An interactive animation lab for mastering pure SVG techniques. Live previews, real-time parameter tweaking, editable code, and zero dependencies.",
+    "shortDescription": "A zero-dependency animation laboratory for mastering pure SVG techniques — from SMIL motion to filter distortions.",
     "tags": [
-      "SVG SMIL",
-      "SVG Filters",
       "Vanilla JS",
-      "Zero Dependencies",
+      "SVG",
+      "SMIL",
       "CSS3",
-      "Interactive Tutorials"
+      "Design Systems"
     ],
     "links": {
       "live": "https://ashborn-047.github.io/svg-forge/",
