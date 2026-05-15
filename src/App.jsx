@@ -41,7 +41,12 @@ const PROJECTS = [
       { title: "Resolving Navigation Flow", desc: "Fixed clunky static sidebars by introducing a fully collapsible navigation rail with 300ms smooth transitions and logo-toggle functionality." },
       { title: "Fixing Layout Overflow", desc: "Completely eliminated horizontal overflow issues that previously broke the layout on smaller viewports, ensuring a strict responsive grid." },
       { title: "Enhancing Visual Feedback", desc: "Added missing interactive states, including 'Webtoon Green' hover effects, refined profile tab glows, and active-state indicators." },
-      { title: "Before vs. After Impact", desc: "Acted as a practical case study comparing the original fragmented Webtoon UX against this modernized Next.js prototype, clearly demonstrating the resolution of core usability flaws." },
+    ],
+    beforeAfter: [
+      { aspect: "Navigation & Discovery", before: "Infinite vertical scroll prioritizing established titles, leading to indie creator suppression.", after: "Horizontal modular carousels and 'Continue Reading' sections, significantly boosting discovery for new Canvas creators." },
+      { aspect: "Layout Constraints", before: "Unrestricted width causing horizontal overflow bugs and broken responsiveness on smaller screens.", after: "Strict max-width wrappers with fluid grid layouts, ensuring a perfect responsive experience across all viewports." },
+      { aspect: "Visual Feedback", before: "Static text links and missing hover states resulting in a lifeless, confusing user journey.", after: "Dynamic 'Webtoon Green' hover effects, active tab indicators, and subtle glows for a premium, tactile feel." },
+      { aspect: "Content Organization", before: "Scattered profile settings and disorganized 'My Series' lists without clear progress tracking.", after: "A unified Profile dashboard with clear categorization, rounded-edge tabs, and built-in reading progress bars." }
     ],
     built: ["Responsive Next.js application tailored for mobile, tablet, and desktop viewports","Complex UI state management using Zustand and custom hooks","Aesthetic layout using Radix UI primitives and Tailwind utility classes","Automated GitHub Pages deployment pipeline using GitHub Actions"],
     metrics: [{ val: "Next 14", label: "App Router" },{ val: "Tailwind", label: "Styling" },{ val: "Zustand", label: "State Layer" },{ val: "Radix", label: "Primitives" }],
@@ -520,19 +525,44 @@ function DetailOverlay({project,onClose,isMobile}){
               </Section>
 
               {/* use cases */}
-              <Section label="USE_CASES_">
-                <div style={{display:"flex",flexDirection:"column",gap:isMobile?16:20}}>
-                  {p.usecases.map((u,i)=>(
-                    <div key={u.title} style={{display:"grid",gridTemplateColumns:"22px 1fr",gap:12}}>
-                      <span style={{fontSize:10,letterSpacing:"0.1em",color:"rgba(168,85,247,.4)",fontFamily:"'Courier New',monospace",paddingTop:2}}>0{i+1}</span>
-                      <div>
-                        <div style={{fontSize:isMobile?12:13,letterSpacing:"0.04em",color:p.accentColor,marginBottom:4}}>{u.title}</div>
-                        <div style={{fontSize:isMobile?11.5:12.5,lineHeight:1.7,color:"rgba(138,154,170,.65)"}}>{u.desc}</div>
+              {p.usecases && p.usecases.length > 0 && (
+                <Section label="USE_CASES_">
+                  <div style={{display:"flex",flexDirection:"column",gap:isMobile?16:20}}>
+                    {p.usecases.map((u,i)=>(
+                      <div key={u.title} style={{display:"grid",gridTemplateColumns:"22px 1fr",gap:12}}>
+                        <span style={{fontSize:10,letterSpacing:"0.1em",color:"rgba(168,85,247,.4)",fontFamily:"'Courier New',monospace",paddingTop:2}}>0{i+1}</span>
+                        <div>
+                          <div style={{fontSize:isMobile?12:13,letterSpacing:"0.04em",color:p.accentColor,marginBottom:4}}>{u.title}</div>
+                          <div style={{fontSize:isMobile?11.5:12.5,lineHeight:1.7,color:"rgba(138,154,170,.65)"}}>{u.desc}</div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </Section>
+                    ))}
+                  </div>
+                </Section>
+              )}
+
+              {/* before and after */}
+              {p.beforeAfter && p.beforeAfter.length > 0 && (
+                <Section label="BEFORE_&_AFTER_">
+                  <div style={{display:"flex",flexDirection:"column",gap:16}}>
+                    {p.beforeAfter.map((item,i)=>(
+                      <div key={i} style={{background:"rgba(255,255,255,.02)",border:"1px solid rgba(255,255,255,.05)",padding:"14px",fontSize:isMobile?11.5:12.5}}>
+                        <div style={{color:p.accentColor,marginBottom:8,letterSpacing:"0.05em",textTransform:"uppercase"}}>{item.aspect}</div>
+                        <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"1fr 1fr",gap:isMobile?8:16}}>
+                          <div>
+                            <span style={{color:"#ef4444",fontSize:10,letterSpacing:"0.1em",fontFamily:"'Courier New',monospace",display:"block",marginBottom:4}}>[BEFORE]</span>
+                            <span style={{color:"rgba(138,154,170,.6)"}}>{item.before}</span>
+                          </div>
+                          <div>
+                            <span style={{color:"#10b981",fontSize:10,letterSpacing:"0.1em",fontFamily:"'Courier New',monospace",display:"block",marginBottom:4}}>[AFTER]</span>
+                            <span style={{color:"rgba(138,154,170,.85)"}}>{item.after}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </Section>
+              )}
 
               {/* what i built */}
               <Section label="WHAT_I_BUILT_">
