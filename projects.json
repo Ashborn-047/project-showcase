@@ -85,14 +85,15 @@
     ],
     "status": "live",
     "year": 2024,
-    "shortDescription": "A curated digital museum of Interface Design. An interactive showcase exploring how UI/UX, typography, and shaders have transformed across decades.",
+    "shortDescription": "A Digital Museum of Interface Design — exploring 7 interactive experiments in kinetic typography, liquid shaders, and ambient computing.",
     "tags": [
       "React",
       "Three.js",
       "WebGL",
       "GSAP",
       "Creative Coding",
-      "Shaders"
+      "GLSL",
+      "Zustand"
     ],
     "links": {
       "live": "https://ashborn-047.github.io/evolution-atlas/",

@@ -158,6 +158,25 @@ export default function DetailOverlay({project,onClose,isMobile}){
                 </Section>
               )}
 
+              {/* exhibits */}
+              {p.exhibits && p.exhibits.length > 0 && (
+                <Section label="CURATED_EXHIBITS_">
+                  <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"repeat(auto-fit, minmax(280px, 1fr))",gap:12}}>
+                    {p.exhibits.map((ex,i)=>(
+                      <div key={i} style={{background:"rgba(255,255,255,.02)",border:"1px solid rgba(255,255,255,.05)",padding:"18px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+                        <div>
+                          <div style={{fontSize:isMobile?13:14,letterSpacing:"0.04em",color:p.accentColor,marginBottom:6}}>{ex.title}</div>
+                          <div style={{fontSize:isMobile?11.5:12.5,lineHeight:1.6,color:"rgba(138,154,170,.65)",marginBottom:14}}>{ex.desc}</div>
+                        </div>
+                        {ex.link && (
+                          <a href={ex.link} target="_blank" rel="noreferrer" style={{fontSize:9,fontFamily:"'Courier New',monospace",color:p.accentColor,textDecoration:"none",letterSpacing:"0.1em",alignSelf:"flex-end",borderBottom:`1px solid ${p.accentColor}`}}>ENTER EXHIBIT ↗</a>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </Section>
+              )}
+
               {/* what i built */}
               <Section label="WHAT_I_BUILT_">
                 <div style={{display:"flex",flexDirection:"column",gap:10}}>

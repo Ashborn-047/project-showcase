@@ -95,23 +95,36 @@ export const PROJECTS = [
   {
     id: "evolution-atlas", title: "Evolution Atlas",
     category: ["Creative Computation", "Digital Museum"], status: "live", year: 2024,
-    shortDescription: "A curated digital museum of Interface Design. An interactive showcase exploring how UI/UX, typography, and shaders have transformed across decades.",
-    fullDescription: "Evolution Atlas is an interactive journey through the history of digital design. It features 7 meticulously curated experiments that trace the evolution of interfaces—from static tools to ambient computing. The project combines kinetic typography, liquid shaders, and advanced color theory systems to create a deeply immersive, educational experience about the medium we use every day.",
+    shortDescription: "A Digital Museum of Interface Design — exploring 7 interactive experiments in kinetic typography, liquid shaders, and ambient computing.",
+    fullDescription: "Evolution Atlas is an interactive journey through the history of digital design. It features 7 meticulously curated experiments that trace the evolution of interfaces—from static tools to ambient computing. The project combines kinetic typography, liquid shaders, and advanced color theory systems to create a deeply immersive, educational experience. It serves as a digital sanctuary for the art of interaction, archiving seismic shifts in computational aesthetics—from rigid, deterministic grids to the fluid, predictive interfaces of the coming decade.",
     tags: ["React", "Three.js", "WebGL", "GSAP", "Creative Coding", "Shaders"],
     links: { live: "https://ashborn-047.github.io/evolution-atlas/", github: "https://github.com/Ashborn-047/evolution-atlas", caseStudy: null }, accentColor: "#7C3AED",
     tech: [
-      { name: "Three.js + WebGL", role: "Powers the highly complex background environments, including custom liquid shaders and particle-based time representations.", badge: "3D Graphics" },
-      { name: "GSAP", role: "Orchestrates buttery-smooth, cinematic timeline animations for kinetic typography and era transitions.", badge: "Animation" },
-      { name: "React", role: "Manages the overarching application state, route transitions, and the deeply interactive exhibit panels.", badge: "Framework" },
-      { name: "Shader Programming", role: "Written custom GLSL shaders to simulate organic, fluid interfaces that react in real-time to user input.", badge: "Core" },
+      { name: "Three.js + WebGL", role: "Powers high-fidelity background environments, including custom liquid shaders and particle-based time representations.", badge: "3D Graphics" },
+      { name: "GSAP", role: "Orchestrates cinematic timeline animations for kinetic typography and era-specific transitions.", badge: "Animation" },
+      { name: "React", role: "Manages overarching application state, route transitions, and deeply interactive exhibit panels.", badge: "Framework" },
+      { name: "Shader Programming", role: "Written custom GLSL shaders to simulate organic, fluid interfaces that react in real-time to user presence.", badge: "Core" },
     ],
     usecases: [
-      { title: "Design Education", desc: "Serves as an interactive textbook for young designers to understand the historical context of modern UX paradigms." },
-      { title: "Shader Exploration", desc: "Provides an isolated environment to study the performance characteristics of complex fragment shaders on the web." },
-      { title: "Cinematic Showcase", desc: "Acts as a technical flex, demonstrating the absolute limits of browser-based real-time rendering and GSAP orchestration." },
+      { title: "Design Education", desc: "Serves as an interactive reference for designers to study the historical context of modern UX paradigms." },
+      { title: "Shader Exploration", desc: "Provides an isolated environment to study the performance of 30+ complex fragment shaders in-browser." },
+      { title: "Ambient Computing", desc: "Explores interfaces that don't wait for input but instead actively participate in the digital environment." },
     ],
-    built: ["Seven entirely distinct, deeply interactive experiments representing different eras of UI design","Custom-tuned liquid fragment shaders capable of hitting 60fps on mobile devices","Complex GSAP timelines perfectly synchronized with WebGL camera pans","A robust, accessible React shell wrapping deeply experimental canvas contexts"],
-    metrics: [{ val: "7", label: "Curated Exhibits" },{ val: "60fps", label: "Render Target" },{ val: "WebGL", label: "Rendering Core" }],
+    exhibits: [
+      { title: "Kinetic Typography", desc: "Treating letterforms as particles subject to physical forces that respond organically to user proximity.", link: "https://ashborn-047.github.io/evolution-atlas/#kinetic-typography" },
+      { title: "Liquid Shader", desc: "Simulating fluid viscosity in shaders to create UI surfaces that feel tangible and living.", link: "https://ashborn-047.github.io/evolution-atlas/#liquid-shader-ui" },
+      { title: "Aether Sync", desc: "Visualizing asynchronous data streams as turbulent curl noise particle systems—data as weather.", link: "https://ashborn-047.github.io/evolution-atlas/#aether-sync" },
+      { title: "Shader Vault", desc: "An open-source library of 30+ production-ready GLSL shaders with an integrated Monaco code editor.", link: "https://ashborn-047.github.io/evolution-atlas/#shader-vault" },
+      { title: "Chroma Kinetics", desc: "Temporal color perception mapped to scroll progress, creating chromatic navigation muscle memory.", link: "https://ashborn-047.github.io/evolution-atlas/#chroma-kinetics" },
+      { title: "UI Atlas", desc: "Spatial interface design using shared layout transitions to create persistent relational memory.", link: "https://ashborn-047.github.io/evolution-atlas/#ui-atlas" }
+    ],
+    built: [
+      "Seven distinct, deeply interactive experiments representing different eras of UI design",
+      "Curated library of over 30 high-performance fragment shaders and WebGL experiments",
+      "Complex GSAP timelines perfectly synchronized with WebGL camera pans and 3D scenes",
+      "Robust, accessible React shell utilizing Zustand for minimalist, reactive state management"
+    ],
+    metrics: [{ val: "7", label: "Curated Exhibits" },{ val: "30+", label: "Custom Shaders" },{ val: "60fps", label: "Render Target" },{ val: "WebGL", label: "Rendering Core" }],
   },
   {
     id: "svg-forge", title: "SVG Forge",
