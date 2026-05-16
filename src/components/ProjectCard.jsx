@@ -17,8 +17,8 @@ export default function ProjectCard({project,index,onOpen,isMobile}){
   const textBlock = (
       <div style={{padding:isMobile?"18px 16px 22px":"28px 32px",display:"flex",flexDirection:"column"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:8,marginBottom:10}}>
-          <span style={{fontSize:isMobile?8:9,letterSpacing:"0.12em",color:"rgba(216,180,254,1)",lineHeight:1.4}}>
-            {project.category.join(" · ").toUpperCase()}
+          <span style={{fontSize:isMobile?8:9,letterSpacing:"0.12em",color:project.accentColor,lineHeight:1.4}}>
+            {project.category.toUpperCase()}
           </span>
           <StatusBadge status={project.status} small={isMobile}/>
         </div>
@@ -26,16 +26,16 @@ export default function ProjectCard({project,index,onOpen,isMobile}){
           {project.title}
         </h2>
         <p style={{fontSize:12,lineHeight:1.7,color:"rgba(138,154,170,.75)",marginBottom:14,flex:1}}>
-          {project.shortDescription}
+          {project.description}
         </p>
         <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:14}}>
-          {project.tags.slice(0,isMobile?3:project.tags.length).map(t=>(
-            <span key={t} style={{fontSize:9,letterSpacing:"0.08em",color:"rgba(138,154,170,.5)",background:"rgba(255,255,255,.03)",padding:"3px 8px",border:"1px solid rgba(255,255,255,.05)"}}>
+          {project.tech.slice(0,isMobile?3:project.tech.length).map(t=>(
+            <span key={t} style={{fontSize:9,letterSpacing:"0.08em",color:project.accentColor,background:`rgba(${rgb},.04)`,padding:"3px 8px",border:`1px solid rgba(${rgb},.1)`}}>
               {t}
             </span>
           ))}
-          {isMobile&&project.tags.length>3&&(
-            <span style={{fontSize:9,color:"rgba(138,154,170,.3)",padding:"3px 6px"}}>+{project.tags.length-3}</span>
+          {isMobile&&project.tech.length>3&&(
+            <span style={{fontSize:9,color:"rgba(138,154,170,.3)",padding:"3px 6px"}}>+{project.tech.length-3}</span>
           )}
         </div>
         <div style={{display:"flex",justifyContent:isEven ? "flex-end" : "flex-start"}}>

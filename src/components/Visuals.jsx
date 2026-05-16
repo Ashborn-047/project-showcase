@@ -78,37 +78,33 @@ export function ProjectVisual({project}) {
         const a2=a+1.1,p2x=cx+rx*Math.cos(a2-Math.PI/2),p2y=cy+ry*Math.sin(a2-Math.PI/2);
         ctx.fillStyle=`rgba(${rgb},.9)`;ctx.shadowColor=project.accentColor;ctx.shadowBlur=6;
         ctx.beginPath();ctx.arc(p2x,p2y,3,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
-      } else if(project.id==="the-terminal"){
+      } else if(project.id==="terminal-os"){
         const lines=[
-          { t: "$ boot --identity pushan", c: "#39FF14" },
-          { t: "Initializing...", c: "rgba(138,154,170,.6)" },
-          { t: "✓ Memory loaded [147]", c: "rgba(138,154,170,.6)", check: true },
-          { t: "✓ Encryption active", c: "rgba(138,154,170,.6)", check: true },
-          { t: "$ ls ./projects", c: "#39FF14" },
-          { t: "silverwall/ lifesync/", c: "rgba(138,154,170,.6)" },
-          { t: "$ open the-terminal/", c: "#39FF14" }
+          { t: "[  OK  ] Mounted /dev/vfs", c: "#28CA41" },
+          { t: "[  OK  ] Initializing Core Kernel", c: "#28CA41" },
+          { t: "Loading User: Pushan", c: "rgba(255,255,255,0.7)" },
+          { t: "Status: Level 42 [God Mode]", c: "#ffbd2e" },
+          { t: "Streak: 15 Days (+20% XP)", c: "#ff5f57" },
+          { t: "$ quest --status", c: "#A78BFA" },
+          { t: "> Daily: Execute 50 cmds (15/50)", c: "rgba(255,255,255,0.5)" }
         ];
-        const lineTime = 25;
+        const lineTime = 20;
         const vis=Math.floor(t/lineTime);
         ["#ff5f57","#ffbd2e","#28ca41"].forEach((c,i)=>{ctx.fillStyle=c;ctx.beginPath();ctx.arc(12+i*14,14,3.5,0,Math.PI*2);ctx.fill();});
-        ctx.font=`${Math.min(W*.034,10)}px 'Courier New', monospace`;
+        ctx.font=`${Math.min(W*.038, 11)}px 'Courier New', monospace`;
         lines.forEach((l,i)=>{
           if(i<=vis){
             const charCount = i < vis ? l.t.length : Math.floor((t % lineTime) * (l.t.length / lineTime));
             const text = l.t.slice(0, charCount);
-            if(l.check && text.startsWith("✓")){
-              ctx.fillStyle="#28ca41"; ctx.fillText("✓", 12, 34+i*15);
-              ctx.fillStyle=l.c; ctx.fillText(text.slice(1), 12+ctx.measureText("✓").width, 34+i*15);
-            } else {
-              ctx.fillStyle=l.c; ctx.fillText(text, 12, 34+i*15);
-            }
+            ctx.fillStyle=l.c; 
+            ctx.fillText(text, 12, 36+i*18);
           }
         });
         if(vis<lines.length && t%30<15){
           const curr = lines[vis];
           const charCount = Math.floor((t % lineTime) * (curr.t.length / lineTime));
-          ctx.fillStyle="#a855f7"; 
-          ctx.fillRect(12+ctx.measureText(curr.t.slice(0, charCount)).width, 34+vis*15-8, 5, 10);
+          ctx.fillStyle=project.accentColor; 
+          ctx.fillRect(12+ctx.measureText(curr.t.slice(0, charCount)).width, 36+vis*18-9, 6, 11);
         }
       } else if(project.id==="webtoon-redesign"){
         ctx.strokeStyle=`rgba(${rgb},.15)`;ctx.lineWidth=1;
@@ -127,14 +123,37 @@ export function ProjectVisual({project}) {
         }
         ctx.fillStyle=project.accentColor;ctx.beginPath();ctx.arc(W/2,H/2,4,0,Math.PI*2);ctx.fill();
       } else if(project.id==="lifesync"){
-        const cx=W/2,cy=H/2;
-        ctx.fillStyle=`rgba(${rgb},.06)`;
-        ctx.beginPath();ctx.arc(cx,cy,12,0,Math.PI*2);ctx.fill();
-        ctx.strokeStyle=`rgba(${rgb},.3)`;ctx.lineWidth=1;
-        ctx.beginPath();ctx.ellipse(cx,cy,W*.3,H*.2,Math.PI/6,0,Math.PI*2);ctx.stroke();
-        const a=t*.015,px=cx+Math.cos(a)*W*.3*Math.cos(Math.PI/6)-Math.sin(a)*H*.2*Math.sin(Math.PI/6),py=cy+Math.cos(a)*W*.3*Math.sin(Math.PI/6)+Math.sin(a)*H*.2*Math.cos(Math.PI/6);
-        ctx.fillStyle="rgba(255,255,255,.9)";ctx.shadowColor="#fff";ctx.shadowBlur=5;
-        ctx.beginPath();ctx.arc(px,py,3,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+        const cx=W/2, cy=H/2;
+        const helixWidth = W * 0.4;
+        const helixPoints = 15;
+        
+        // DNA Helix Pulse Visual
+        for(let i=0; i<helixPoints; i++){
+          const y = (H * 0.2) + (i * (H * 0.6) / helixPoints);
+          const phase = t * 0.05 + i * 0.5;
+          const x1 = cx + Math.sin(phase) * (helixWidth / 2);
+          const x2 = cx - Math.sin(phase) * (helixWidth / 2);
+          
+          // Connection link (base pair)
+          ctx.strokeStyle = `rgba(${rgb}, ${0.1 + Math.abs(Math.sin(phase)) * 0.2})`;
+          ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.stroke();
+          
+          // Nodes
+          ctx.fillStyle = `rgba(${rgb}, ${0.4 + Math.abs(Math.sin(phase)) * 0.6})`;
+          ctx.shadowColor = project.accentColor;
+          ctx.shadowBlur = 8;
+          ctx.beginPath(); ctx.arc(x1, y, 4, 0, Math.PI*2); ctx.fill();
+          ctx.beginPath(); ctx.arc(x2, y, 4, 0, Math.PI*2); ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+
+        // Central Pulse Node
+        const pulse = Math.abs(Math.sin(t * 0.02));
+        ctx.fillStyle = `rgba(${rgb}, ${0.05 * pulse})`;
+        ctx.beginPath(); ctx.arc(cx, cy, 50 * pulse, 0, Math.PI*2); ctx.fill();
+        ctx.fillStyle = project.accentColor;
+        ctx.beginPath(); ctx.arc(cx, cy, 4, 0, Math.PI*2); ctx.fill();
       } else if(project.id==="svg-forge"){
         const speed=t*.015,os=Math.sin(speed)*20,os2=Math.cos(speed*0.7)*15;
         const p1={x:W*.1,y:H*.8},p2={x:W*.9,y:H*.2};
@@ -169,9 +188,9 @@ export function ProjectVisual({project}) {
         ctx.fillStyle=sunGrad;ctx.beginPath();ctx.arc(cx,cy,sunR*1.5,0,Math.PI*2);ctx.fill();
         
         // Solar Flares (Subtle)
-        ctx.strokeStyle=`rgba(${rgb},.3)`;ctx.lineWidth=1;
-        for(let i=0;i<8;i++){
-          const a=t*.01+i*(Math.PI/4),r1=sunR,r2=sunR+15+Math.sin(t*.05+i)*10;
+        ctx.strokeStyle=`rgba(${rgb},.4)`;ctx.lineWidth=1.5;
+        for(let i=0;i<12;i++){
+          const a=t*.015+i*(Math.PI/6),r1=sunR-2,r2=sunR+18+Math.sin(t*.08+i)*12;
           ctx.beginPath();ctx.moveTo(cx+Math.cos(a)*r1,cy+Math.sin(a)*r1);ctx.lineTo(cx+Math.cos(a)*r2,cy+Math.sin(a)*r2);ctx.stroke();
         }
 

@@ -10,7 +10,7 @@ export default function App(){
   const [filter,setFilter]=useState("all");
   const [selected,setSelected]=useState(null);
   const closeDetail=useCallback(()=>setSelected(null),[]);
-  const filtered=filter==="all"?PROJECTS:PROJECTS.filter(p=>p.status===filter);
+  const filtered=filter==="all"?PROJECTS:PROJECTS.filter(p=>p.status.toLowerCase()===filter.toLowerCase());
   const px=isMobile?"16px":isTablet?"28px":"44px";
   const FILTERS=[{key:"all",label:"ALL"},{key:"live",label:"LIVE"},{key:"in-progress",label:"IN PROGRESS"},{key:"case-study",label:"CASE STUDY"}];
 

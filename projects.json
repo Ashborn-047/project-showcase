@@ -1,22 +1,12 @@
 [
   {
     "id": "webtoon-redesign",
-    "title": "Webtoon Ecosystem Redesign",
-    "category": [
-      "Frontend Architecture",
-      "UX Transformation"
-    ],
+    "title": "Webtoon Redesign",
+    "category": ["UI/UX TRANSFORMATION"],
     "status": "case-study",
     "year": 2025,
-    "shortDescription": "A strategic UX transformation resolving critical layout bugs, horizontal overflow issues, and clunky navigation within the Webtoon interface.",
-    "tags": [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Zustand",
-      "Radix UI"
-    ],
+    "shortDescription": "A strategic UX transformation resolving layout bugs and clunky navigation within the Webtoon interface.",
+    "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand", "Radix UI"],
     "links": {
       "live": "https://ashborn-047.github.io/Webtoon-Ecosystem-Platform-Redesign-/",
       "github": "https://github.com/Ashborn-047/Webtoon-Ecosystem-Platform-Redesign-",
@@ -27,74 +17,41 @@
   {
     "id": "silverwall",
     "title": "SilverWall Telemetry",
-    "category": [
-      "Frontend Architecture",
-      "Real-Time Data"
-    ],
+    "category": ["DATA & ANALYTICS"],
     "status": "in-progress",
     "year": 2025,
-    "shortDescription": "A high-performance F1 telemetry dashboard inspired by the Mercedes AMG pit-wall, powered by a SpacetimeDB reactive engine.",
-    "tags": [
-      "React",
-      "TypeScript",
-      "SpacetimeDB",
-      "TailwindCSS",
-      "OpenF1 API",
-      "Real-Time Sync",
-      "Data Visualization"
-    ],
+    "shortDescription": "Real-time F1 telemetry platform featuring live pit-wall dashboards and AI-powered race commentary.",
+    "tags": ["SpacetimeDB", "FastAPI", "React", "TypeScript", "OpenF1 API", "Google Gemini"],
     "links": {
-      "live": "https://ashborn-047.github.io/silverwall/",
-      "github": "https://github.com/Ashborn-047/silverwall",
+      "live": "#",
+      "github": "https://github.com/Ashborn-047/Silverwall",
       "caseStudy": null
     },
-    "accentColor": "#00FFB3"
+    "accentColor": "#E10600"
   },
   {
     "id": "the-terminal",
-    "title": "The Terminal Simulator",
-    "category": [
-      "System Engineering",
-      "Gamification"
-    ],
-    "status": "in-progress",
+    "title": "The Terminal",
+    "category": ["SYSTEMS"],
+    "status": "live",
     "year": 2025,
-    "shortDescription": "A professional-grade Linux terminal simulator with a POSIX-compliant VFS, 70+ commands, and a gamified dual-track curriculum.",
-    "tags": [
-      "React",
-      "TypeScript",
-      "POSIX VFS",
-      "OS Simulation",
-      "Framer Motion",
-      "Gamification",
-      "SpacetimeDB"
-    ],
+    "shortDescription": "A POSIX-compliant Linux simulator with deep gamification and a real-time kernel.",
+    "tags": ["React", "TypeScript", "Zustand", "Framer Motion", "Tailwind CSS"],
     "links": {
-      "live": "https://ashborn-047.github.io/the-terminal/",
-      "github": "https://github.com/Ashborn-047/the-terminal",
+      "live": "https://theterminal.vercel.app",
+      "github": "https://github.com/Ashborn-047/The-Terminal",
       "caseStudy": null
     },
-    "accentColor": "#39FF14"
+    "accentColor": "#28CA41"
   },
   {
     "id": "evolution-atlas",
     "title": "Evolution Atlas",
-    "category": [
-      "Creative Computation",
-      "Digital Museum"
-    ],
+    "category": ["CREATIVE COMPUTATION"],
     "status": "live",
     "year": 2024,
-    "shortDescription": "A Digital Museum of Interface Design — exploring 7 interactive experiments in kinetic typography, liquid shaders, and ambient computing.",
-    "tags": [
-      "React",
-      "Three.js",
-      "WebGL",
-      "GSAP",
-      "Creative Coding",
-      "GLSL",
-      "Zustand"
-    ],
+    "shortDescription": "A Digital Museum of Interface Design exploring kinetic typography and ambient computing.",
+    "tags": ["React", "Three.js", "WebGL", "GSAP", "Shaders"],
     "links": {
       "live": "https://ashborn-047.github.io/evolution-atlas/",
       "github": "https://github.com/Ashborn-047/evolution-atlas",
@@ -105,45 +62,26 @@
   {
     "id": "svg-forge",
     "title": "SVG Forge",
-    "category": [
-      "Creative Coding",
-      "Developer Tooling"
-    ],
+    "category": ["DEVELOPER TOOLING"],
     "status": "live",
     "year": 2024,
-    "shortDescription": "A zero-dependency animation laboratory for mastering pure SVG techniques — from SMIL motion to filter distortions.",
-    "tags": [
-      "Vanilla JS",
-      "SVG",
-      "SMIL",
-      "CSS3",
-      "Design Systems"
-    ],
+    "shortDescription": "A zero-dependency animation laboratory for mastering pure SVG techniques.",
+    "tags": ["Vanilla JS", "SVG", "SMIL", "CSS3"],
     "links": {
       "live": "https://ashborn-047.github.io/svg-forge/",
       "github": "https://github.com/Ashborn-047/svg-forge",
       "caseStudy": null
     },
-    "accentColor": "#06B6D4"
+    "accentColor": "#00D4FF"
   },
   {
     "id": "solar-core",
-    "title": "Solar Core Explorer",
-    "category": [
-      "Web3D",
-      "Physics Simulation"
-    ],
+    "title": "Solar Core",
+    "category": ["PHYSICS SIMULATION"],
     "status": "live",
     "year": 2024,
-    "shortDescription": "A high-fidelity, interactive 3D solar system explorer featuring procedural planetary physics, orbital mechanics, and a deep telemetry HUD.",
-    "tags": [
-      "Three.js",
-      "WebGL",
-      "Procedural Generation",
-      "Physics",
-      "React",
-      "Shaders"
-    ],
+    "shortDescription": "A high-fidelity 3D solar system explorer featuring procedural planetary physics.",
+    "tags": ["Three.js", "WebGL", "React", "Procedural Generation"],
     "links": {
       "live": "https://ashborn-047.github.io/Solar-Core-Explorer/",
       "github": "https://github.com/Ashborn-047/Solar-Core-Explorer",
@@ -154,26 +92,16 @@
   {
     "id": "lifesync",
     "title": "LifeSync",
-    "category": [
-      "AI Orchestration",
-      "Systems Architecture"
-    ],
+    "category": ["AI & SYSTEMS"],
     "status": "in-progress",
     "year": 2025,
-    "shortDescription": "A modular, AI-powered personal operating system unifying behavioral analytics, adaptive personas, and seamless cross-platform automation.",
-    "tags": [
-      "React",
-      "TypeScript",
-      "FastAPI",
-      "LLM Integration",
-      "Event-Driven",
-      "System Design"
-    ],
+    "shortDescription": "A modular, AI-powered personal operating system for behavioral optimization.",
+    "tags": ["FastAPI", "Supabase", "React Native", "Vector DB", "OpenAI"],
     "links": {
-      "live": "https://ashborn-047.github.io/Lifesync/",
+      "live": "#",
       "github": "https://github.com/Ashborn-047/Lifesync",
       "caseStudy": null
     },
-    "accentColor": "#F59E0B"
+    "accentColor": "#A78BFA"
   }
 ]

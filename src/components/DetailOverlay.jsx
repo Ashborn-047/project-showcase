@@ -38,9 +38,9 @@ export default function DetailOverlay({project,onClose,isMobile}){
         {/* top bar */}
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:`14px ${sidePad}`,borderBottom:"1px solid rgba(255,255,255,.05)",flexShrink:0,gap:12}}>
           <span style={{fontSize:isMobile?9:10,letterSpacing:"0.14em",color:"rgba(138,154,170,.4)",fontFamily:"'Courier New',monospace",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>
-            PROJECTS {p&&<>/ <span style={{color:"rgba(216,180,254,1)"}}>{p.title.toUpperCase()}</span></>}
+            PROJECTS {p&&<>/ <span style={{color:p.accentColor}}>{p.title.toUpperCase()}</span></>}
           </span>
-          <button onClick={onClose} style={{background:"none",border:"1px solid rgba(255,255,255,.08)",color:"rgba(138,154,170,.6)",fontFamily:"'Courier New',monospace",fontSize:10,letterSpacing:"0.12em",padding:isMobile?"6px 10px":"7px 16px",cursor:"pointer",flexShrink:0}}>
+          <button onClick={onClose} style={{background:"none",border:`1px solid rgba(${rgb},.2)`,color:p?p.accentColor:"#a855f7",fontFamily:"'Courier New',monospace",fontSize:10,letterSpacing:"0.12em",padding:isMobile?"6px 10px":"7px 16px",cursor:"pointer",flexShrink:0}}>
             {isMobile?"✕":"✕ CLOSE"}
           </button>
         </div>
@@ -52,8 +52,8 @@ export default function DetailOverlay({project,onClose,isMobile}){
               {/* hero */}
               <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"1fr 300px",gap:isMobile?24:48,marginBottom:isMobile?32:52,alignItems:"start"}}>
                 <div>
-                  <div style={{fontSize:9,letterSpacing:"0.2em",color:"rgba(216,180,254,1)",marginBottom:12,fontFamily:"'Courier New',monospace"}}>
-                    {p.category.join(" · ").toUpperCase()} · {p.year}
+                  <div style={{fontSize:9,letterSpacing:"0.2em",color:p.accentColor,marginBottom:12,fontFamily:"'Courier New',monospace"}}>
+                    {p.category.toUpperCase()} · {p.year || "2025"}
                   </div>
                   <h1 style={{fontFamily:"Georgia,serif",fontSize:isMobile?"clamp(24px,7vw,34px)":"clamp(32px,4vw,48px)",fontWeight:400,color:"#e8edf2",letterSpacing:"-0.02em",lineHeight:1.05,marginBottom:14}}>
                     {p.title}
@@ -78,13 +78,13 @@ export default function DetailOverlay({project,onClose,isMobile}){
               </div>
 
               {/* metrics */}
-              {p.metrics&&(
+              {p.metrics && (
                 <Section label="METRICS_">
                   <div style={{display:"grid",gridTemplateColumns:`repeat(auto-fill,minmax(${isMobile?"90px":"120px"},1fr))`,gap:8}}>
-                    {p.metrics.map(m=>(
-                      <div key={m.label} style={{background:"rgba(255,255,255,.02)",border:"1px solid rgba(255,255,255,.05)",padding:isMobile?"12px 10px":"18px 14px"}}>
-                        <div style={{fontFamily:"Georgia,serif",fontSize:isMobile?20:26,color:p.accentColor,lineHeight:1,marginBottom:5}}>{m.val}</div>
-                        <div style={{fontSize:9,letterSpacing:"0.12em",color:"rgba(138,154,170,.5)",fontFamily:"'Courier New',monospace"}}>{m.label}</div>
+                    {Object.entries(p.metrics).map(([label, val])=>(
+                      <div key={label} style={{background:"rgba(255,255,255,.02)",border:"1px solid rgba(255,255,255,.05)",padding:isMobile?"12px 10px":"18px 14px"}}>
+                        <div style={{fontFamily:"Georgia,serif",fontSize:isMobile?18:22,color:p.accentColor,lineHeight:1,marginBottom:5}}>{val}</div>
+                        <div style={{fontSize:9,letterSpacing:"0.12em",color:"rgba(138,154,170,.5)",fontFamily:"'Courier New',monospace",textTransform:"uppercase"}}>{label}</div>
                       </div>
                     ))}
                   </div>
@@ -93,12 +93,10 @@ export default function DetailOverlay({project,onClose,isMobile}){
 
               {/* tech stack */}
               <Section label="TECH_STACK_">
-                <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr 1fr":"repeat(auto-fill,minmax(200px,1fr))",gap:8}}>
+                <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
                   {p.tech.map(t=>(
-                    <div key={t.name} style={{background:"rgba(255,255,255,.02)",border:"1px solid rgba(255,255,255,.05)",padding:isMobile?"12px":"16px"}}>
-                      <span style={{display:"inline-block",fontSize:8,letterSpacing:"0.1em",padding:"2px 7px",background:`rgba(${rgb},.1)`,color:p.accentColor,marginBottom:7,fontFamily:"'Courier New',monospace"}}>{t.badge}</span>
-                      <div style={{fontSize:isMobile?10:11,letterSpacing:"0.06em",color:"#e8edf2",marginBottom:4}}>{t.name}</div>
-                      <div style={{fontSize:isMobile?10:11,lineHeight:1.6,color:"rgba(138,154,170,.6)"}}>{t.role}</div>
+                    <div key={t} style={{background:`rgba(${rgb},.04)`,border:`1px solid rgba(${rgb},.1)`,padding:"8px 14px",fontSize:isMobile?10:11,color:"#e8edf2",letterSpacing:"0.04em"}}>
+                      {t}
                     </div>
                   ))}
                 </div>
@@ -161,16 +159,10 @@ export default function DetailOverlay({project,onClose,isMobile}){
               {/* exhibits */}
               {p.exhibits && p.exhibits.length > 0 && (
                 <Section label="CURATED_EXHIBITS_">
-                  <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"repeat(auto-fit, minmax(280px, 1fr))",gap:12}}>
+                  <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"repeat(auto-fit, minmax(200px, 1fr))",gap:8}}>
                     {p.exhibits.map((ex,i)=>(
-                      <div key={i} style={{background:"rgba(255,255,255,.02)",border:"1px solid rgba(255,255,255,.05)",padding:"18px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
-                        <div>
-                          <div style={{fontSize:isMobile?13:14,letterSpacing:"0.04em",color:p.accentColor,marginBottom:6}}>{ex.title}</div>
-                          <div style={{fontSize:isMobile?11.5:12.5,lineHeight:1.6,color:"rgba(138,154,170,.65)",marginBottom:14}}>{ex.desc}</div>
-                        </div>
-                        {ex.link && (
-                          <a href={ex.link} target="_blank" rel="noreferrer" style={{fontSize:9,fontFamily:"'Courier New',monospace",color:p.accentColor,textDecoration:"none",letterSpacing:"0.1em",alignSelf:"flex-end",borderBottom:`1px solid ${p.accentColor}`}}>ENTER EXHIBIT ↗</a>
-                        )}
+                      <div key={i} style={{background:"rgba(255,255,255,.02)",border:`1px solid rgba(${rgb},.1)`,padding:"16px",display:"flex",flexDirection:"column"}}>
+                        <div style={{fontSize:isMobile?11:12,letterSpacing:"0.04em",color:p.accentColor}}>{ex.toUpperCase()}</div>
                       </div>
                     ))}
                   </div>

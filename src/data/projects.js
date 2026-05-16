@@ -1,203 +1,144 @@
 export const RUNES = "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟ".split("");
 
 export const STATUS_MAP = {
-  live:          { label: "LIVE",        color: "#00FFB3" },
-  "in-progress": { label: "IN PROGRESS", color: "#F59E0B" },
-  "case-study":  { label: "CASE STUDY",  color: "#A78BFA" },
-  archived:      { label: "ARCHIVED",    color: "#6B7280" },
+  "LIVE":        { label: "LIVE",        color: "#10b981" },
+  "IN PROGRESS": { label: "IN PROGRESS", color: "#f59e0b" },
+  "CASE STUDY":  { label: "CASE STUDY",  color: "#8b5cf6" },
+  "ARCHIVED":    { label: "ARCHIVED",    color: "#6b7280" },
 };
 
 export const PROJECTS = [
   {
-    id: "webtoon-redesign", title: "Webtoon Ecosystem Redesign",
-    category: ["Frontend Architecture", "UX Transformation"], status: "case-study", year: 2025,
-    shortDescription: "A strategic UX transformation resolving critical layout bugs, horizontal overflow issues, and clunky navigation within the Webtoon interface.",
-    fullDescription: "Webtoon's previous interface suffered from jarring horizontal overflow issues, an inflexible navigation structure, and a severe lack of visual feedback. This Next.js prototype directly addresses these UX flaws. It implements a smooth, fully collapsible navigation rail to optimize screen real estate and enforces strict layout boundaries to eliminate horizontal scrolling bugs. Furthermore, it enhances behavioral depth by introducing clear 'Webtoon Green' hover states, intuitive scroll-navigation for the 'Continue Reading' sections, and modernized profile tabs featuring rounded edges and subtle glows.",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand", "Radix UI"],
-    links: { live: "https://ashborn-047.github.io/Webtoon-Ecosystem-Platform-Redesign-/", github: "https://github.com/Ashborn-047/Webtoon-Ecosystem-Platform-Redesign-", caseStudy: null }, accentColor: "#00DC64",
-    tech: [
-      { name: "Next.js & React", role: "Leveraged the App Router and React hooks for a robust, performant foundation with static export capabilities.", badge: "Framework" },
-      { name: "Tailwind & Radix UI", role: "Built a highly accessible, responsive design system emphasizing 'Webtoon Green' and soft UI aesthetics.", badge: "UI/UX" },
-      { name: "Zustand", role: "Managed complex cross-component state, specifically for the collapsible navigation and user progress tracking.", badge: "State" },
-    ],
-    usecases: [
-      { title: "Resolving Navigation Flow", desc: "Fixed clunky static sidebars by introducing a fully collapsible navigation rail with 300ms smooth transitions and logo-toggle functionality." },
-      { title: "Fixing Layout Overflow", desc: "Completely eliminated horizontal overflow issues that previously broke the layout on smaller viewports, ensuring a strict responsive grid." },
-      { title: "Enhancing Visual Feedback", desc: "Added missing interactive states, including 'Webtoon Green' hover effects, refined profile tab glows, and active-state indicators." },
-    ],
-    beforeAfter: [
-      { aspect: "Navigation & Discovery", before: "Infinite vertical scroll prioritizing established titles, leading to indie creator suppression.", after: "Horizontal modular carousels and 'Continue Reading' sections, significantly boosting discovery for new Canvas creators." },
-      { aspect: "Layout Constraints", before: "Unrestricted width causing horizontal overflow bugs and broken responsiveness on smaller screens.", after: "Strict max-width wrappers with fluid grid layouts, ensuring a perfect responsive experience across all viewports." },
-      { aspect: "Visual Feedback", before: "Static text links and missing hover states resulting in a lifeless, confusing user journey.", after: "Dynamic 'Webtoon Green' hover effects, active tab indicators, and subtle glows for a premium, tactile feel." },
-      { aspect: "Content Organization", before: "Scattered profile settings and disorganized 'My Series' lists without clear progress tracking.", after: "A unified Profile dashboard with clear categorization, rounded-edge tabs, and built-in reading progress bars." }
-    ],
-    built: ["Responsive Next.js application tailored for mobile, tablet, and desktop viewports","Complex UI state management using Zustand and custom hooks","Aesthetic layout using Radix UI primitives and Tailwind utility classes","Automated GitHub Pages deployment pipeline using GitHub Actions"],
-    metrics: [{ val: "Next 14", label: "App Router" },{ val: "Tailwind", label: "Styling" },{ val: "Zustand", label: "State Layer" },{ val: "Radix", label: "Primitives" }],
-  },
-  {
-    id: "silverwall", title: "SilverWall Telemetry",
-    category: ["Frontend Architecture", "Real-Time Data"], status: "in-progress", year: 2025,
-    shortDescription: "A high-performance F1 telemetry dashboard inspired by the Mercedes AMG pit-wall, powered by a SpacetimeDB reactive engine.",
-    fullDescription: "SilverWall is an engineering-grade F1 telemetry dashboard inspired by the Mercedes-AMG Petronas 'Silver Wall' pit-wall interface. It has recently undergone a major architectural pivot, migrating from a legacy Python/Supabase stack to a Full TypeScript + SpacetimeDB architecture. This transition ensures ultra-low latency state synchronization, allowing for real-time car tracking, sub-second leaderboard updates, and seamless multi-user data parity without the overhead of traditional polling.",
-    tags: ["React", "TypeScript", "SpacetimeDB", "TailwindCSS", "OpenF1 API", "Real-Time Sync", "Data Visualization"],
-    links: { live: "https://ashborn-047.github.io/silverwall/", github: "https://github.com/Ashborn-047/silverwall", caseStudy: null }, accentColor: "#00FFB3",
-    tech: [
-      { name: "React + Tailwind", role: "Architected a high-density 'mission control' interface inspired by the Mercedes AMG Silverwall design system.", badge: "Frontend" },
-      { name: "SpacetimeDB", role: "Migrated the core telemetry engine to SpacetimeDB, enabling ultra-low latency state synchronization and eliminating legacy polling bottlenecks.", badge: "Database" },
-      { name: "TS Ingestor Worker", role: "Developed a high-performance worker that ingests live data from the OpenF1 API and pushes verified telemetry directly into the SpacetimeDB core.", badge: "Backend" },
-      { name: "SVG Vertex Rendering", role: "Implementing high-fidelity circuit map rendering using vertex-based SVG paths for extreme accuracy during live tracking.", badge: "Graphics" },
-    ],
-    usecases: [
-      { title: "Low Latency Sync", desc: "Achieve sub-second parity between the OpenF1 API source and all connected clients via SpacetimeDB's reactive engine." },
-      { title: "Mission Control UI", desc: "Experience F1 sessions through a professional-grade interface optimized for density, readability, and immediate data access." },
-      { title: "Demo Mode Availability", desc: "Allows recruiters and users to experience the live telemetry environment completely offline using simulated session data." },
-    ],
-    architecture: [
-      { step: "Data Ingestion", desc: "High-performance TypeScript workers poll the OpenF1 API, normalizing raw telemetry into relational entities." },
-      { step: "SpacetimeDB Core", desc: "The relational engine handles state synchronization, enabling real-time push without the lag of traditional polling." },
-      { step: "Multiplexed Sync", desc: "React clients utilize the SpacetimeDB SDK for direct state subscriptions, ensuring sub-50ms data parity." },
-    ],
-    built: ["Full migration to a SpacetimeDB-powered reactive architecture for ultra-low latency telemetry sync","Custom UI component library inspired by Mercedes AMG Petronas pit-wall aesthetics","High-performance TypeScript ingestor bridging OpenF1 API streams with SpacetimeDB","Real-time circuit geometry renderer with interpolated car positions"],
-    metrics: [{ val: "<50ms", label: "Latency Target" },{ val: "Reactive", label: "Engine" },{ val: "20", label: "Live Entities" },{ val: "OpenF1", label: "Source" }],
-  },
-  {
-    id: "the-terminal", title: "The Terminal Simulator",
-    category: ["System Engineering", "Gamification"], status: "in-progress", year: 2025,
-    shortDescription: "A professional-grade Linux terminal simulator with a POSIX-compliant VFS, 70+ commands, and a gamified dual-track curriculum.",
-    fullDescription: "The Terminal is a professional-grade educational platform designed to transform users into command-line experts. It is not just a visual gimmick; it is a fully functioning, POSIX-inspired Linux terminal built entirely in React. Users can navigate a deeply sandboxed Virtual File System with Inode management, run over 70 interactive commands (including pipes, redirections, and job control), and complete guided gamified labs. The system features a dual-track curriculum: a 15-chapter Foundational Track and an Advanced Mastery Track focusing on task scheduling and server analysis.",
-    tags: ["React", "TypeScript", "POSIX VFS", "OS Simulation", "Framer Motion", "Gamification", "SpacetimeDB"],
-    links: { live: "https://ashborn-047.github.io/the-terminal/", github: "https://github.com/Ashborn-047/the-terminal", caseStudy: null }, accentColor: "#39FF14",
-    tech: [
-      { name: "React Ecosystem", role: "Leveraged React's component model to build a highly responsive, state-driven terminal emulator with strict render constraints.", badge: "Framework" },
-      { name: "Hardened VFS", role: "Implemented a POSIX-compliant Inode-based filesystem in memory, supporting octal permissions and true path resolution.", badge: "Architecture" },
-      { name: "Framer Motion", role: "Crafted subtle typewriter effects, blinking cursors, and authentic Neo-Brutalist screen transitions to deeply enhance immersion.", badge: "Animation" },
-      { name: "Custom CLI Parser", role: "Developed a bespoke parser supporting 70+ commands, pipelines ( | ), I/O redirection ( > , >> ), and job control.", badge: "Core" },
-    ],
-    usecases: [
-      { title: "Interactive Exploration", desc: "Encourages users to engage natively, using standard POSIX commands like `cd`, `ls`, and `cat` to discover content." },
-      { title: "Educational Labs", desc: "Includes integrated, gamified tutorials that guide users through complex Linux concepts in a safe, browser-based environment." },
-      { title: "Gamified Progression", desc: "Users earn XP and unlock levels by successfully executing commands and completing hidden puzzle objectives.", },
-    ],
-    architecture: [
-      { step: "Shell Engine", desc: "Custom-built parser supporting pipelines, I/O redirection, and environment variables." },
-      { step: "VFS (Inode)", desc: "POSIX-compliant filesystem mapping directories to Inodes with true permission bitmasks." },
-      { step: "Lab Engine", desc: "Automated verification system that audits the terminal's environment state to validate challenge completion." },
-    ],
+    id: "webtoon-redesign",
+    title: "Webtoon Redesign",
+    category: "UI/UX TRANSFORMATION",
+    status: "CASE STUDY",
+    description: "A strategic UX transformation resolving layout bugs and clunky navigation within the Webtoon interface.",
+    fullDescription: "Webtoon's interface suffered from jarring horizontal overflow issues and clunky navigation. This Next.js prototype addresses these flaws with a collapsible navigation rail and strict layout boundaries, emphasizing 'Webtoon Green' aesthetics.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Zustand", "Radix UI"],
     built: [
-      "Custom POSIX-compliant shell engine supporting 70+ commands, pipes, and redirections",
-      "Hardened in-memory VFS with Inode management and octal permission support (chmod/chown)",
-      "Gamified 'Challenge Arena' with 40+ broken system scenarios for diagnostic training",
-      "Real-time multiplayer leaderboards and co-op mentor mode powered by SpacetimeDB",
-      "Multi-track curriculum registry with automated verification of terminal states"
+      "Smooth, fully collapsible navigation rail with 300ms transitions.",
+      "Strict layout boundaries eliminating horizontal overflow bugs.",
+      "Modernized profile tabs and intuitive scroll-navigation.",
+      "High-fidelity design system utilizing 'Webtoon Green' as a primary token."
     ],
-    metrics: [{ val: "70+", label: "Native Commands" },{ val: "POSIX", label: "Compliance" },{ val: "Inode", label: "VFS" },{ val: "Wave 4", label: "Status" }],
+    exhibits: ["Collapsible Rail", "Layout Fixes", "Visual Feedback", "Profile Dash"],
+    links: { github: "https://github.com/Ashborn-047/Webtoon-Ecosystem-Platform-Redesign-", live: "https://ashborn-047.github.io/Webtoon-Ecosystem-Platform-Redesign-/" },
+    accentColor: "#00DC64",
+    metrics: { speed: "Next 14", scale: "Radix UI", uptime: "Zustand" }
   },
   {
-    id: "evolution-atlas", title: "Evolution Atlas",
-    category: ["Creative Computation", "Digital Museum"], status: "live", year: 2024,
-    shortDescription: "A Digital Museum of Interface Design — exploring 7 interactive experiments in kinetic typography, liquid shaders, and ambient computing.",
-    fullDescription: "Evolution Atlas is an interactive journey through the history of digital design. It features 7 meticulously curated experiments that trace the evolution of interfaces—from static tools to ambient computing. The project combines kinetic typography, liquid shaders, and advanced color theory systems to create a deeply immersive, educational experience. It serves as a digital sanctuary for the art of interaction, archiving seismic shifts in computational aesthetics—from rigid, deterministic grids to the fluid, predictive interfaces of the coming decade.",
-    tags: ["React", "Three.js", "WebGL", "GSAP", "Creative Coding", "Shaders"],
-    links: { live: "https://ashborn-047.github.io/evolution-atlas/", github: "https://github.com/Ashborn-047/evolution-atlas", caseStudy: null }, accentColor: "#7C3AED",
-    tech: [
-      { name: "Three.js + WebGL", role: "Powers high-fidelity background environments, including custom liquid shaders and particle-based time representations.", badge: "3D Graphics" },
-      { name: "GSAP", role: "Orchestrates cinematic timeline animations for kinetic typography and era-specific transitions.", badge: "Animation" },
-      { name: "React", role: "Manages overarching application state, route transitions, and deeply interactive exhibit panels.", badge: "Framework" },
-      { name: "Shader Programming", role: "Written custom GLSL shaders to simulate organic, fluid interfaces that react in real-time to user presence.", badge: "Core" },
-    ],
-    usecases: [
-      { title: "Design Education", desc: "Serves as an interactive reference for designers to study the historical context of modern UX paradigms." },
-      { title: "Shader Exploration", desc: "Provides an isolated environment to study the performance of 30+ complex fragment shaders in-browser." },
-      { title: "Ambient Computing", desc: "Explores interfaces that don't wait for input but instead actively participate in the digital environment." },
-    ],
-    exhibits: [
-      { title: "Kinetic Typography", desc: "Treating letterforms as particles subject to physical forces that respond organically to user proximity.", link: "https://ashborn-047.github.io/evolution-atlas/#kinetic-typography" },
-      { title: "Liquid Shader", desc: "Simulating fluid viscosity in shaders to create UI surfaces that feel tangible and living.", link: "https://ashborn-047.github.io/evolution-atlas/#liquid-shader-ui" },
-      { title: "Aether Sync", desc: "Visualizing asynchronous data streams as turbulent curl noise particle systems—data as weather.", link: "https://ashborn-047.github.io/evolution-atlas/#aether-sync" },
-      { title: "Shader Vault", desc: "An open-source library of 30+ production-ready GLSL shaders with an integrated Monaco code editor.", link: "https://ashborn-047.github.io/evolution-atlas/#shader-vault" },
-      { title: "Chroma Kinetics", desc: "Temporal color perception mapped to scroll progress, creating chromatic navigation muscle memory.", link: "https://ashborn-047.github.io/evolution-atlas/#chroma-kinetics" },
-      { title: "UI Atlas", desc: "Spatial interface design using shared layout transitions to create persistent relational memory.", link: "https://ashborn-047.github.io/evolution-atlas/#ui-atlas" }
-    ],
+    id: "silverwall",
+    title: "SilverWall Telemetry",
+    category: "DATA & ANALYTICS",
+    status: "IN PROGRESS",
+    description: "Real-time F1 telemetry platform featuring live pit-wall dashboards and AI-powered race commentary.",
+    fullDescription: "SilverWall is a high-performance Formula 1 telemetry engine that bridges the gap between raw track data and professional race strategy. Built with a custom UI inspired by the Mercedes-AMG SilverWall, it provides a real-time pit-wall experience for enthusiasts and engineers alike.",
+    tech: ["SpacetimeDB", "FastAPI", "React", "TypeScript", "OpenF1 API", "Google Gemini"],
     built: [
-      "Seven distinct, deeply interactive experiments representing different eras of UI design",
-      "Curated library of over 30 high-performance fragment shaders and WebGL experiments",
-      "Complex GSAP timelines perfectly synchronized with WebGL camera pans and 3D scenes",
-      "Robust, accessible React shell utilizing Zustand for minimalist, reactive state management"
+      "Distributed backend situated in SpacetimeDB for ultra-low latency state management.",
+      "Real-time telemetry ingestion using OpenF1 WebSocket streams.",
+      "Custom Driver Performance Analysis engine with AI race strategy commentary.",
+      "High-fidelity UI/UX design system inspired by official Mercedes-AMG telemetry interfaces."
     ],
-    metrics: [{ val: "7", label: "Curated Exhibits" },{ val: "30+", label: "Custom Shaders" },{ val: "60fps", label: "Render Target" },{ val: "WebGL", label: "Rendering Core" }],
+    exhibits: ["Live Dashboards", "Track Geometry Maps", "AI Commentator", "Driver Standings"],
+    links: { github: "https://github.com/Ashborn-047/Silverwall", live: "#" },
+    accentColor: "#E10600",
+    metrics: { speed: "20ms latency", scale: "20+ Drivers", uptime: "99.9%" }
   },
   {
-    id: "svg-forge", title: "SVG Forge",
-    category: ["Creative Coding", "Developer Tooling"], status: "live", year: 2024,
-    shortDescription: "A zero-dependency animation laboratory for mastering pure SVG techniques — from SMIL motion to filter distortions.",
-    fullDescription: "SVG Forge is an interactive animation laboratory dedicated to the art of vector motion. It serves as a comprehensive reference and playground for mastering SVG techniques—from classic stroke-draw animations to advanced filter distortions and SMIL motion paths. The project empowers developers to deeply understand the 'how' and 'why' behind vector graphics through real-time parameter tweaking and an integrated live code editor.",
-    tags: ["Vanilla JS", "SVG", "SMIL", "CSS3", "Design Systems"],
-    links: { live: "https://ashborn-047.github.io/svg-forge/", github: "https://github.com/Ashborn-047/svg-forge", caseStudy: null }, accentColor: "#00D4FF",
-    tech: [
-      { name: "Vanilla JS Engine", role: "Drives the live-editing interface, parsing user input and regenerating complex DOM nodes with zero framework overhead.", badge: "Core" },
-      { name: "SMIL & Filters", role: "The engine for all animations, utilizing native <animate> tags and complex filter primitives like feTurbulence.", badge: "Graphics" },
-      { name: "Pure CSS", role: "Implements a high-contrast, Neo-Brutalist design system with glassmorphism and responsive layouts.", badge: "Design" },
-    ],
-    exhibits: [
-      { title: "Stroke Master", desc: "Mastering the stroke-dasharray technique for organic path-drawing effects and reveal animations.", link: "https://ashborn-047.github.io/svg-forge/" },
-      { title: "Filter Lab", desc: "Exploring displacement mapping and turbulence to create organic, procedural textures in-browser.", link: "https://ashborn-047.github.io/svg-forge/" },
-      { title: "Motion Paths", desc: "Utilizing animateMotion to move elements along complex, non-linear trajectories without external libraries.", link: "https://ashborn-047.github.io/svg-forge/" },
-      { title: "Morph Engine", desc: "Seamlessly transitioning between different vector shapes and paths using native SMIL interpolation.", link: "https://ashborn-047.github.io/svg-forge/" }
-    ],
+    id: "terminal-os",
+    title: "The Terminal",
+    category: "SYSTEMS",
+    status: "LIVE",
+    description: "A POSIX-compliant Linux simulator with deep gamification and a real-time kernel.",
+    fullDescription: "The Terminal is more than a shell—it's a fully-realized Linux-inspired ecosystem. It features a custom VFS, real-time signal propagation, and a sophisticated gamification engine that rewards users for mastering system administration and development tasks.",
+    tech: ["React", "TypeScript", "Zustand", "Framer Motion", "Tailwind CSS"],
     built: [
-      "Real-time SVG template engine with live parameter controls and instant re-rendering",
-      "Integrated Monaco-style code editor for direct SMIL and filter markup manipulation",
-      "Fuzzy-search command palette (⌘K) for rapid navigation across 20+ animation workshops",
-      "Progressive walkthrough system for step-by-step code reveals and technical explanations"
+      "Authentic boot-sequence architecture with identity verification and memory loading.",
+      "Complex Gamification Engine featuring Daily Quests, Streak Freezes, and XP multipliers.",
+      "Custom VFS (Virtual File System) supporting real-time navigation and manipulation.",
+      "Interactive 'Lab Mode' for structured educational tracks with automated assessments."
     ],
-    metrics: [{ val: "0", label: "Dependencies" },{ val: "100%", label: "Native SMIL" },{ val: "60fps", label: "Vector Motion" },{ val: "20+", label: "Workshops" }],
+    exhibits: ["Custom Kernel", "XP & Leveling System", "VFS Explorer", "Terminal Labs"],
+    links: { github: "https://github.com/Ashborn-047/The-Terminal", live: "https://theterminal.vercel.app" },
+    accentColor: "#28CA41",
+    metrics: { commands: "50+ Built-ins", xp: "1M+ Points", users: "1.2k+" }
   },
   {
-    id: "solar-core", title: "Solar Core Explorer",
-    category: ["Web3D", "Physics Simulation"], status: "live", year: 2024,
-    shortDescription: "A high-fidelity, interactive 3D solar system explorer featuring procedural planetary physics, orbital mechanics, and a deep telemetry HUD.",
-    fullDescription: "Solar Core Explorer is a photorealistic WebGL simulation of the cosmos. Built with React and Three.js, it models celestial bodies using real NASA satellite imagery and procedural noise generation. The application features accurate orbital physics, atmospheric scattering shaders, and a sophisticated telemetry HUD that tracks real-time planetary composition and dynamics, bridging the gap between cinematic art and scientific simulation.",
-    tags: ["Three.js", "WebGL", "Procedural Generation", "Physics", "React", "Shaders"],
-    links: { live: "https://ashborn-047.github.io/Solar-Core-Explorer/", github: "https://github.com/Ashborn-047/Solar-Core-Explorer", caseStudy: null }, accentColor: "#EAB308",
-    tech: [
-      { name: "Three.js & WebGL", role: "Powering the cinematic rendering pipeline with PBR materials and multi-layered atmospheric shaders.", badge: "Core" },
-      { name: "Procedural Texturing", role: "Dynamically generating solar surface patterns and planetary cloud layers using noise algorithms.", badge: "Graphics" },
-      { name: "Orbital Physics Engine", role: "Calculating physically accurate planetary rotations and elliptic orbital trajectories in real-time.", badge: "Physics" },
-      { name: "Reactive Telemetry HUD", role: "A data-dense interface built in React that synchronizes with the WebGL state to show live telemetry.", badge: "UI" },
-    ],
-    exhibits: [
-      { title: "Solar Surface", desc: "Observing procedural convection cells and granulation patterns on the Sun's surface.", link: "https://ashborn-047.github.io/Solar-Core-Explorer/" },
-      { title: "Earth Observer", desc: "Detailed rendering of Earth using high-resolution NASA satellite textures and cloud layers.", link: "https://ashborn-047.github.io/Solar-Core-Explorer/" },
-      { title: "Saturnian Rings", desc: "Simulating crystalline ring structures with accurate Cassini Division spacing and shadows.", link: "https://ashborn-047.github.io/Solar-Core-Explorer/" },
-      { title: "Telemetry Feed", desc: "Deep-diving into real-time planetary data including mass, velocity, and atmospheric composition.", link: "https://ashborn-047.github.io/Solar-Core-Explorer/" }
-    ],
+    id: "evolution-atlas",
+    title: "Evolution Atlas",
+    category: "CREATIVE COMPUTATION",
+    status: "LIVE",
+    description: "A Digital Museum of Interface Design exploring kinetic typography and ambient computing.",
+    fullDescription: "Evolution Atlas is an interactive journey through the history of digital design. It features meticulously curated experiments tracing the evolution of interfaces from static tools to ambient computing, utilizing liquid shaders and advanced color theory.",
+    tech: ["React", "Three.js", "WebGL", "GSAP", "Shaders"],
     built: [
-      "Procedural noise engine for generating unique, high-resolution surface maps for every celestial body",
-      "Physically-based rendering (PBR) pipeline optimized for high-performance browser environments",
-      "Interactive orbital camera system allowing seamless zoom from planetary scale to deep-space views",
-      "Sophisticated telemetry dashboard with real-time data synchronization between React and Three.js"
+      "Kinetic typography particles responding organically to user proximity.",
+      "Custom GLSL liquid shaders simulating tangible UI surfaces.",
+      "Aether Sync visualizing asynchronous data streams as curl noise.",
+      "Shader Vault library with 30+ production-ready GLSL experiments."
     ],
-    metrics: [{ val: "NASA", label: "Textures" },{ val: "60fps", label: "Performance" },{ val: "Procedural", label: "Generation" },{ val: "Physics", label: "Driven" }],
+    exhibits: ["Kinetic Typo", "Liquid Shaders", "Aether Sync", "Shader Vault"],
+    links: { github: "https://github.com/Ashborn-047/evolution-atlas", live: "https://ashborn-047.github.io/evolution-atlas/" },
+    accentColor: "#7C3AED",
+    metrics: { fps: "60fps", shaders: "30+", exhibits: "7" }
   },
   {
-    id: "lifesync", title: "LifeSync",
-    category: ["AI Orchestration", "Systems Architecture"], status: "in-progress", year: 2025,
-    shortDescription: "A modular, AI-powered personal operating system unifying behavioral analytics, adaptive personas, and seamless cross-platform automation.",
-    fullDescription: "LifeSync acts as the ultimate coherence layer over modern digital fragmentation. Built to scale from prototype to production with a clean, event-driven architecture, it leverages Large Language Models to identify deep patterns, generate highly actionable insights, and automate repetitive tasks across various platforms. It completely transcends the concept of an app, acting instead as an adaptive digital assistant.",
-    tags: ["React", "TypeScript", "FastAPI", "LLM Integration", "Event-Driven", "System Design"],
-    links: { live: "https://ashborn-047.github.io/Lifesync/", github: "https://github.com/Ashborn-047/Lifesync", caseStudy: null }, accentColor: "#F59E0B",
-    tech: [
-      { name: "Adaptive Design System", role: "A highly robust, multi-theme component library explicitly built to ensure visual consistency across incredibly diverse data representations.", badge: "Design" },
-      { name: "Event-Driven Architecture", role: "Built to scale from prototype to production by relying on a decoupled event bus to handle cross-platform triggers.", badge: "Architecture" },
-      { name: "FastAPI + LLM Engine", role: "The critical orchestration layer that rapidly processes webhook events, queries the LLM for behavioral insights, and returns highly structured actions.", badge: "Backend" },
-      { name: "Cross-Platform Sync Layer", role: "Aggregates massive data streams from platforms like Notion, GitHub, and calendars into a single, beautifully normalized timeline.", badge: "Integration" },
+    id: "svg-forge",
+    title: "SVG Forge",
+    category: "DEVELOPER TOOLING",
+    status: "LIVE",
+    description: "A zero-dependency animation laboratory for mastering pure SVG techniques.",
+    fullDescription: "SVG Forge is an interactive laboratory dedicated to the art of vector motion. It serves as a comprehensive reference for mastering SVG techniques—from SMIL motion paths to complex filter distortions like feTurbulence.",
+    tech: ["Vanilla JS", "SVG", "SMIL", "CSS3"],
+    built: [
+      "Real-time SVG template engine with live parameter controls.",
+      "Integrated code editor for direct SMIL and filter markup manipulation.",
+      "Fuzzy-search command palette for rapid workshop navigation.",
+      "Native filter labs exploring displacement mapping and turbulence."
     ],
-    usecases: [
-      { title: "Intelligent Morning Briefings", desc: "Automatically synthesizes overnight activity and upcoming deadlines into a concise, highly actionable morning summary dashboard." },
-      { title: "Deep Pattern Recognition", desc: "Identifies incredibly subtle productivity trends, correlating variables like time-of-day and application usage with actual output quality." },
-      { title: "Proactive Workflow Automation", desc: "Actively observes repetitive manual actions across apps and proactively suggests automated macros to instantly replace them." },
+    exhibits: ["SMIL Motion", "Filter Lab", "Morph Engine", "Command Palette"],
+    links: { github: "https://github.com/Ashborn-047/svg-forge", live: "https://ashborn-047.github.io/svg-forge/" },
+    accentColor: "#00D4FF",
+    metrics: { deps: "0", native: "100%", speed: "60fps" }
+  },
+  {
+    id: "solar-core",
+    title: "Solar Core",
+    category: "PHYSICS SIMULATION",
+    status: "LIVE",
+    description: "A high-fidelity 3D solar system explorer featuring procedural planetary physics.",
+    fullDescription: "Solar Core Explorer is a photorealistic WebGL simulation of the cosmos. It models celestial bodies using real NASA imagery and procedural noise, featuring accurate orbital physics and atmospheric scattering shaders.",
+    tech: ["Three.js", "WebGL", "React", "Procedural Generation"],
+    built: [
+      "Procedural noise engine for high-resolution surface maps.",
+      "Physically-based rendering pipeline optimized for browsers.",
+      "Interactive orbital camera with seamless planetary scaling.",
+      "Telemetry HUD synchronizing WebGL state with React UI."
     ],
-    built: ["A completely unified, plugin-agnostic frontend dashboard fully capable of handling diverse data streams","A highly sophisticated LLM prompt pipeline designed to extract structured JSON insights from chaotic unstructured activity logs","A perfectly normalized event architecture seamlessly handling high-volume webhooks from 4 distinct APIs","An adaptive UI engine that dynamically shifts visual density based on the user's inferred focus state"],
-    metrics: [{ val: "120+", label: "UI Components" },{ val: "Event", label: "Driven" },{ val: "1", label: "Unified Layer" }],
+    exhibits: ["Solar Surface", "Earth Observer", "Saturnian Rings", "Telemetry Feed"],
+    links: { github: "https://github.com/Ashborn-047/Solar-Core-Explorer", live: "https://ashborn-047.github.io/Solar-Core-Explorer/" },
+    accentColor: "#EAB308",
+    metrics: { fps: "60fps", textures: "NASA", engine: "Physics" }
+  },
+  {
+    id: "lifesync",
+    title: "LifeSync",
+    category: "AI & SYSTEMS",
+    status: "IN PROGRESS",
+    description: "A modular, AI-powered personal operating system for behavioral optimization.",
+    fullDescription: "LifeSync is an ambitious personal orchestration system designed to unify behavioral analytics, adaptive personas, and seamless automation. It uses a vector-based personality engine to sync life goals with actionable daily habits.",
+    tech: ["FastAPI", "Supabase", "React Native", "Vector DB", "OpenAI"],
+    built: [
+      "AI-powered Adaptive Persona Engine for personalized interaction.",
+      "Vector-based behavioral scoring for high-fidelity life optimization.",
+      "Cross-platform synchronization (Web/Mobile) via event-driven architecture.",
+      "MindMesh integration for real-time mindfulness and focus tracking."
+    ],
+    exhibits: ["Persona Dashboard", "MindMesh Canvas", "Habit Tracker", "AI Assistant"],
+    links: { github: "https://github.com/Ashborn-047/Lifesync", live: "#" },
+    accentColor: "#A78BFA",
+    metrics: { sync: "Real-time", memory: "1M+ Vectors", accuracy: "94%" }
   }
 ];
